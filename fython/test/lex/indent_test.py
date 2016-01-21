@@ -1,5 +1,6 @@
 s = """
 .a.fy
+	int i
 	real: x(10) y(10, 10)
 
 	if x[1]>1:

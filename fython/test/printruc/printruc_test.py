@@ -2,7 +2,7 @@ s = r"""
 .a.fy
 	integer: x=8, var_name_without_dot=10, any_var_name=10 
 	integer: float int vector(10) vector_content(10) 
-	char(10) variable_name='./file', string = 'abcdef'
+	char(10): variable_name='./file', string = 'abcdef'
 
 	# basic
 	print 'x {:x}'

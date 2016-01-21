@@ -14,7 +14,7 @@ s = """
 
 	def quicksort:
 		T dimension(10) in x
-		int i
+		int: i r
 		for i in [1, 10]:
 			r = x[i].lt( x[i+1] )
 			print 'i {:r}'

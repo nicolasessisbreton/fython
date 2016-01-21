@@ -63,7 +63,7 @@ class FyModule:
 
 
 		# production
-		s.module_buffer = Buffer() # module buffer
+		s.module_buffer = Buffer(implicit_none) # module buffer
 		s.main_buffer = Buffer()
 		s.method_buffer = Buffer()
 

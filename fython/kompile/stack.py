@@ -46,6 +46,7 @@ class Stack(Data):
 				url = url,
 				cwd = cwd,
 				ext = exts.importable,
+				release = s.release,
 			)
 
 		if url.pickle in s.module:

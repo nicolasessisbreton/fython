@@ -541,7 +541,10 @@ class Unit:
 	# >: add import
 	def __gt__(s, other):
 		b = s.b
-		b += other
+		b.rstrip(implicit_none)
+		b != other 
+		b != ';'
+		b != implicit_none
 		return s
 
 	@property

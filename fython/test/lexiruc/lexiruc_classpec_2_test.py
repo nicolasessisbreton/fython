@@ -6,6 +6,7 @@ s = """
 		def pget f:
 			s in
 			U res r	
+			U scale
 			r = s.x * scale
 
 	def G = A(

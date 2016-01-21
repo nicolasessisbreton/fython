@@ -16,6 +16,9 @@ fyinterpolant_url = 'fython.interpolant.interpolant'
 getpfx = 'g3jk28_'
 setpfx = 's84kd9_'
 
+# implicit none
+implicit_none = '\nimplicit none\n'
+
 # fortran compiler
 class fyfc_ifort(Data):
 	cmd = 'ifort'

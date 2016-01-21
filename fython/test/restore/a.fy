@@ -1,1 +1,1 @@
-integer z
+int z

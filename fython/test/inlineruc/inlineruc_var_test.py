@@ -4,7 +4,7 @@ s="""
 
 	def f:
 		inline x
-		print 'x {:s}'
+		print 'x {:x}'
 
 	f()
 """
