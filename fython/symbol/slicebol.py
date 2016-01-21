@@ -17,7 +17,7 @@ class SliceBol(Unit):
 		s ^ slicex
 
 		s.is_klass_pset = 0
-		
+
 	# &: add modifier
 	def __and__(s, other):
 		s ^ other

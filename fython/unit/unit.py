@@ -34,7 +34,7 @@ class Unit:
 		
 		s.is_klass_pset = 0
 		s.is_iruc_target = 1
-		
+
 	def __format__(s, format):
 		return str(s)
 

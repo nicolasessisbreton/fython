@@ -119,15 +119,11 @@ def t_code(t):
 	return t
 
 def t_error(t):
-	b = Buffer()
-	b += 'line {:d}'.format(t.lexer.lineno)
-	b += 'position {:d}'.format(t.lexer.lexpos)
-	b += 'module {:s}'.format(t.lexer.module.dotted)
-	b += 'lexem {:s}'.format(repr(t))
-	b += 'code:'
-	if t.lexer.lineno < len(t.lexer.module.source_lines):
-		b += t.lexer.module.source_lines[t.lexer.lineno]
-	throw(err.mark_newlinex_lexing_error, b)
+	t.lexer.module.throw(
+		err.mark_newlinex_lexing_error, 
+		line = t.lexer.lineno,
+		lexem = repr(t),
+	)
 
 main_lexer = plex(reflags=re.DOTALL)
 
