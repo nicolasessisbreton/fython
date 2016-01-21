@@ -1,16 +1,16 @@
 Features
 --------
 
-.. include:: feature/performance.rst
+.. include:: overview/feature/performance.rst
 
-.. include:: feature/python_syntax.rst
+.. include:: overview/feature/python_syntax.rst
 
-.. include:: feature/python_comfort.rst
+.. include:: overview/feature/python_comfort.rst
 
-.. include:: feature/pycessor.rst
+.. include:: overview/feature/pycessor.rst
 
-.. include:: feature/template.rst
+.. include:: overview/feature/template.rst
 
-.. include:: feature/fytypes.rst
+.. include:: overview/feature/fytypes.rst
 
-.. include:: feature/wrap_code.rst
+.. include:: overview/feature/wrap_code.rst
