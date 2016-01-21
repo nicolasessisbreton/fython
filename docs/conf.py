@@ -13,7 +13,7 @@ html_show_copyright = 1
 copyright = '2015, Nicolas Essis-Breton. Released under an Apache License 2.0'
 
 version = '1.0 alpha'
-release = ''
+release = version
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if not on_rtd:
