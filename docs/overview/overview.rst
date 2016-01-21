@@ -1,14 +1,14 @@
 Overview
 ========
 
-.. include:: pre.rst
+.. include:: overview/pre.rst
  
-.. include:: feature/feature.rst
+.. include:: overview/feature/feature.rst
 
-.. include:: installation.rst
+.. include:: overview/installation.rst
 
-.. include:: contribute.rst
+.. include:: overview/contribute.rst
 
-.. include:: support.rst
+.. include:: overview/support.rst
 
-.. include:: license.rst
+.. include:: overview/license.rst
