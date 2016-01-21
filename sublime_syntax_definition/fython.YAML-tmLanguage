@@ -1,0 +1,79 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: fython
+scopeName: source.fython
+fileTypes: [fy]
+uuid: 4c3e44cc-30bd-4f10-8d69-304741d0e2d7
+
+foldingStartMarker: ^\s*(def|type|interface)\s+([.a-zA-Z0-9_ <]+)\s*(\((.*)\))?\s*:|\{\s*$|\(\s*$|\[\s*$|^\s*"""(?=.)(?!.*""")
+foldingStopMarker: ^\s*$|^\s*\}|^\s*\]|^\s*\)|^\s*"""\s*$
+
+patterns:
+
+- name: comment.block.fython
+  begin: (?i)\#\#
+  end: (?i)\#\#
+
+- name: string.block.fython
+  begin: (?i)\'\'\'
+  end: (?i)\'\'\'
+
+- name: string.block.fython
+  begin: (?i)\"\"\"
+  end: (?i)\"\"\"
+
+- name: comment.line.pound.fython
+  match: (?i)\#.*
+
+- name: comment.line.inline_fortran.fython
+  match: (?i)\!(?!\=).*
+
+- match: (?i)\b(def|type)\s.*?\s?(\w+)(\s*\:)
+  captures:
+    '1': {name: storage.type.function.fython}
+    '2': {name: entity.name.function.fython}
+
+- name: constant.numeric.fython
+  match: (?i)\b\d+\.\d*([de][+-]?\d+)?\b
+
+- name: constant.language.fython
+  match: (?i)(true|false)
+
+- name: keyword.other.fython
+  match: (?i)\b(typedef|interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b
+
+- name: keyword.control.fython
+  match: (?i)\b(if|then|else|elif|while|where|for|continue|break|pass|return)\b
+
+- name: keyword.operator.logical.fython
+  match: (?i)[\s](and|or|not)[\s]
+
+- name: keyword.operator.fython
+  match: (?i)\=|>|<|\!\=|\+|\-|\*|\/|
+
+- name: string.quoted.single.fython
+  match: (?i)\"([^"]*)\"
+
+- name: string.quoted.single.fython
+  match: (?i)\'([^']*)\'
+
+- name: support.function.fython
+  match: (?i)\b(present|size|nullify|open|close|inquire|lbound|ubound|sin|cos|asin|acos|tan|atan)(?=\s*\()
+
+- name: support.function.fython
+  match: (?i)\b(selected_real_kind|allocated|shape)(?=\s*\()
+
+- name: support.function.fython
+  match: (?i)(\s+)\b(sum|product|count|matmul|ceiling|max|min|maxval|minval|maxloc|minloc)(?=\s*\()
+
+- name: support.function.fython
+  match: (?i)\b(d?(sqrt|abs|erf|log|exp))(?=\s*\()
+
+- name: support.function.fython
+  match: (?i)\b(trim|adjustl|dot_product|all|any|reshape|transpose)(?=\s*\()
+
+- name: storage.modifier.fython
+  match: (?i)\b(cons|spec|iso|recursive|pure|elemental|bind|iso|abstract|allocatable|dimension|pointer|target|intent|parameter)\b
+
+- name: storage.type.fython
+  match: (?i)\b(int|char|bool|integer|real|complex|logical|character)\b

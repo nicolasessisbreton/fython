@@ -1,0 +1,44 @@
+stat/
+
+  setup.py
+
+  stat/
+
+    mean/
+      mean.fy
+      mean_test.py
+
+    variance/
+      variance.fy
+      variance_spec.fy
+      variance_test.py
+
+    newspaper/
+      print.fy
+      print_test.py
+      read.fy
+      read_test.fy
+
+    class/
+      class.py
+      class_test.fy
+
+    imports/
+      __init__.fy
+      imports.fy
+      imports_test.fy
+
+    pycessor/
+      pycessor.fy
+      pycessor_test.py
+  
+    baygon/
+      baygon.fy      
+      baygon_test.py
+      force_test.py
+      release_test.py
+      verbose_test.py
+      
+    backus/
+      fortran.py
+      so.py

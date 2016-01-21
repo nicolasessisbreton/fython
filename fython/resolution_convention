@@ -1,0 +1,8 @@
+the final resolution is on the right of the dot '.'
+
+suffix 'R' means resolver
+
+prefix '>' is info avalaible at resolution node
+
+'?' is the else resolution 
+	when none of the previous resolution matched

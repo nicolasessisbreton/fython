@@ -1,0 +1,3 @@
+variable_with_same_name_as_module = 1
+
+print(variable_with_same_name_as_module)

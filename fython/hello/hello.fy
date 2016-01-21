@@ -1,0 +1,1 @@
+char(100) hello = 'Welcome to Fython. See the build products in'

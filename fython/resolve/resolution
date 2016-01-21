@@ -1,0 +1,36 @@
+linefeedx ibol . iruc
+
+linefeedx element newlinex . unaryR
+	element
+		break . breakruc
+		continue .continueruc
+		pass . passruc
+		template . templateruc
+		temp . templateruc
+		? . elementruc
+
+linefeedx element0 element1 element* terminal. genericR
+	element0
+		alloc . allocruc
+		class . classpec
+		dealloc . deallocruc
+		def . defR
+			terminal
+				ibol . lexiruc
+				childcod . routpec
+		elif . elifruc
+		else . elseruc
+		elwhere . elwhereruc
+		if . ifruc
+		import . importpec
+		inline . inlineruc
+		interface . interfacepec
+		for . forruc
+		omp . ompruc
+		print . printruc
+		private . privateruc
+		public . publicruc
+		read . readruc
+		where . whereruc
+		while . whileruc
+		? . varpec	

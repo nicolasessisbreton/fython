@@ -1,0 +1,1 @@
+import fython.test.importpec.a

@@ -1,0 +1,21 @@
+s = """
+.a.fy
+	def pure f:
+		real in r
+
+	def elemental g:
+		real in x
+		real res r
+		r = x + 3
+
+	def h:
+		real res r
+"""
+
+from fython.test import *
+
+writer(s)
+
+w = load('.a', force=1, release=1, verbose=0)
+# print(open(w.module.url.fortran_path, 'r').read())
+

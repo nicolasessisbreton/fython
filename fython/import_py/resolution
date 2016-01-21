@@ -1,0 +1,33 @@
+"""
+only three kinds of import are possible
+	star import
+		import a(*)
+
+	aliased namespace import 
+		import a.b = c
+			exception
+				import a . import a = a
+
+	slice import
+		import a(b, c=d)
+"""
+
+import namex . namespace import ( namex = namex )
+
+import funbol 
+	funbol(arg0 arg1 ...)	
+	arg0
+		* .	star import
+		? . slice import
+
+import dotbol
+	m0.m1. ... .mN
+		mN
+			funbol
+				funbol(arg0 arg1 ...)	
+				arg0
+					* . star import
+					? . slice import
+
+import ibol
+	target = alias .  namespace alias import

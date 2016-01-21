@@ -1,0 +1,13 @@
+
+# for string in print statement
+
+'value of x is {:x}'
+
+# before the colon is any fortran format
+
+# other avaible format
+# dot '.' denotes result
+
+'vector {v:x}' . vector [1, 2, 3]
+
+'vector content {vc:x}' . vector 1, 2, 3

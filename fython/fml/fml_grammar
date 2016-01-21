@@ -1,0 +1,10 @@
+start 	:	bofx
+		|	start eofx
+		| 	start code
+
+code 	:	newline
+		| 	tab
+		|	lce
+		|	rce
+		| 	string
+		|	interpolant

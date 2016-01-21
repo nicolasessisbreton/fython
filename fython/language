@@ -1,0 +1,139 @@
+# entity marked with a '#~' are not really in the group where they are defined
+# they are there for convenience
+
+# lexem are in parsing order
+# other are in complexity order (most complex first)
+
+code # ast
+	linecod # linefeedx element+ (childcod|enumbol|ibol|newlinex)
+	childcod # indentx  linecod+ dedentx
+
+		# code can be either
+		spec
+		instruction
+		interpolation
+
+		spec
+			module
+
+				importpec
+				
+				interfacepec
+					classpec
+					routpec
+					varpec
+					
+				classpec
+					typepec
+						varpec
+					methodpec
+						routpec
+					
+				routpec # function or subroutine
+
+				varpec # variable
+
+
+		instruction
+			.*ruc # see fython.instruction for details
+
+		interpolation # po
+			string po # fython.fml
+			preprocessing po
+			lexical po # fython.instruction.lexiruc
+			spec po # spec of a pec taken from another pec
+			inline po # inline of code of a pec at a line
+			package po
+
+element # (symbol|lexem)
+
+symbol
+	enumbol #~ colonx element+ newlinex
+
+	ibol #~ in-place symbol ; element iopx element+ newlinex
+
+	dotbol #  udotx element | element bdotx element
+
+	funbol # funx element* rparx
+	slicebol # slicex element* rketx
+
+	parbol # lparx element* rparx
+	ketbol # lketx element* rketx
+
+	opbol # opx element | element opx element
+
+	packagebol # lpackagex (element|commax)* rpackagex	
+
+	semibol # element semix element	
+	
+		lexem
+
+lexem
+	obtained by preprocessing
+		bofx #~
+		eofx #~
+
+		linefeedx #~
+		newlinex #~
+
+		indentx #~ \n\t+
+		dedentx #~ \n\t-
+
+	lpackagex # ||
+	rpackagex # ||
+
+	interpolationx #~ |.*?|
+	
+	stringx
+		multiline_string_tickx # '''.*'''
+		multiline_string_quotex # """.*"""
+
+		string_tickx # '.*'
+		string_quotex # ".*"
+
+	funx #~ namex(
+	slicex #~ namex[
+
+
+	numberx # \d* \. [eEdD]? \d*
+
+	namex # [\w\$]+
+
+	iopx #~ += -= *= /= = => 
+
+	opx # + - * / ** < <= == != => > and or : =
+
+	notx # not ; unary
+
+	udotx #~ (\s+)\.+ 
+	bdotx #~ \.
+
+	semix  #~ , ; when not in parenthesis or bracket
+
+	commax #~ ,
+	colonx # :	
+	
+	lparx #~
+	rparx #~
+
+	lketx #~
+	rketx #~
+
+	ignored
+		commentx #~
+			multiline_commentx # ##.*?##
+			singleline_commentx # #.*
+
+		spacex #~ [\s\n]
+
+# precedence
+	left semix
+	left opx
+	left bdotx
+	right udotx 
+
+# terminal
+	childcod
+	enumbol
+	ibol
+	newlinex

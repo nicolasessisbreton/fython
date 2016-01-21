@@ -1,0 +1,26 @@
+import element
+	element.url
+		fy . fyR
+		fort . fortR
+		so . so import
+		not found . fortR
+
+fyR
+	> import element
+		element
+			ibol . fy aliased namespace import
+
+			namex . fy aliased namespace import
+
+			funbol(arg0 arg1 ...)
+				arg0
+					* . fy star import
+					? . fy slice import
+
+fortR
+	> import element
+		element
+			funbol(arg0 arg1 ...)
+				arg0
+					* . fort star import
+					? . fort slice import ; use only

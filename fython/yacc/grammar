@@ -1,0 +1,86 @@
+# suffixR means resolver
+
+code	:	bofx
+		|	code linecod
+		|	code eofx
+
+linecod 	:	linecodR childcod
+			|	linecodR enumbol
+			|	linecodR ibol
+			|	linecodR newlinex
+
+linecodR	:	linefeedx
+			|	linecodR element
+
+childcod 	: 	childcodR dedentx
+
+childcodR 	: 	indentx 
+			|	childcodR linecod
+
+element	:	symbol
+		|	lexem
+
+symbol	:	dotbol
+		|	funbol
+		|	slicebol
+		|	parbol
+		|	ketbol
+		| 	opbol
+		|	packagebol
+		|	semibol		
+
+enumbol :	enumR newlinex
+		
+enumR 	:	colonx
+		|	enumR element
+
+ibol	:	ibolR newlinex
+
+ibolR	:	element iopx
+		|	ibolR element
+
+
+dotbol	:	udotx element
+		|	element bdotx element
+
+funbol	:	funbolR rparx
+		
+funbolR	:	funx
+		|	funbolR element
+
+slicebol :	slicebolR rketx
+		
+slicebolR	:	slicex
+			|	slicebolR element
+
+parbol	:	parbolR rparx
+
+parbolR :	lparx
+		|	parbolR element
+
+ketbol	:	ketbolR rketx
+
+ketbolR :	lketx
+		|	ketbolR element
+
+opbol	:	opx element
+		|	element opx element
+
+packagebol	:	packagebolR rpackagex	
+
+packagebolR 	: 	lpackagex
+				|	packagebolR element
+	
+semibol 	: 	element semix element			
+
+lexem	:	stringx
+		|	namex
+		|	numberx
+		|	opx
+		|	commax
+
+# precedence ; least first
+	left semix
+	left opx
+	left bdotx
+	right udotx	

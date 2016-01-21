@@ -1,0 +1,19 @@
+fython.test.imp
+	imp('dotted.python.name')
+		import a python file
+			usefull for relative import
+				that needs to be runnable	
+
+fython.test.writer
+	writer(""" >> first line ignore <<
+	dotted.name.where.to.copy.content.with.extension
+		file content
+		indented by at least one level
+
+	useful.py
+		import cut operator
+		~.a.py
+			replace tilde '~'
+				with good package root
+				relative to writer function caller folder
+	""")

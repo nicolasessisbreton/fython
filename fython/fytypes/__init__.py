@@ -1,0 +1,1 @@
+from .fytypes import Real, Int, Char

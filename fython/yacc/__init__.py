@@ -1,0 +1,1 @@
+from .yacc import yacc

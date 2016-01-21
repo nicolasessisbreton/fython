@@ -1,0 +1,8 @@
+print modifier* opbol
+	opbol
+		format('actual format to use') + args(arg, to, use)
+
+see 
+	fython.test.printruc
+
+for resolution by example
