@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 from importlib import import_module
 from fython.config import *
@@ -12,13 +13,14 @@ for dirpath, dirnames, filenames in os.walk(cwd):
 		path = os.path.abspath('{:s}/{:s}'.format(dirpath, name))
 		path = path[n+1:]
 		dotted = path.replace('/', '.')
-
+		
 		if name.startswith('_'):
 			continue
 		if ext != '.py':
 			continue
 		if name[:3] != 'all' and 'test' in name:
 			print('--', dotted, '--')
+			print(111, dotted)
 			import_module(dotted)
 			print()
 

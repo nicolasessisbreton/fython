@@ -34,8 +34,8 @@ def resolve(linecod):
 		)
 
 		error.__traceback__ = e.__traceback__
-
-		raise error from None
+		error.__context__ = None
+		raise error 
 
 
 def get_module_url(name):

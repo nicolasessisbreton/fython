@@ -1,3 +1,4 @@
+from __future__ import print_function
 from importlib import import_module
 from ..config import *
 import fython.traceback as tbk

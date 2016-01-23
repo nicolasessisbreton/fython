@@ -215,7 +215,8 @@ class FyModule:
 				interpolant = code,
 				return_only = 1,
 			)
-			raise error from None
+			error.__context__ = None
+			raise error
 
 	def eval_import_statement(s, import_statement):
 		s.has_py_dependency = 1
@@ -232,7 +233,8 @@ class FyModule:
 				import_statement = import_statement,
 				return_only = 1,
 			)
-			raise error from None
+			error.__context__ = None
+			raise error 
 
 	def adjust_interpolant_endian(s, r):
 		# pop bofx, linefeedx, eox

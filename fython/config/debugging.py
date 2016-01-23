@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 def xip(*args):
 	for a in args:
 		print(a, end=' ')

@@ -1,4 +1,9 @@
-from textwrap import indent as add_indent
+from .py3 import *
+
+if py3:
+	from textwrap import indent as add_indent
+else:
+	add_indent = lambda x, y: x
 
 tab = '\t'
 

@@ -1,6 +1,5 @@
 import sys
 from os.path import abspath, exists
-from importlib import invalidate_caches
 from ..config import *
 
 dotted_re = re.compile('~[\w\.]+')
