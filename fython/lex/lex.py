@@ -7,6 +7,7 @@ from .get_lexer import get_lexer
 from .get_lexem import get_lexem
 from .mark_unsafe_interpolation_lexem import mark_unsafe_interpolation_lexem
 from .mark_opx_from_semix import mark_opx_from_semix
+from .mark_eopx import mark_eopx
 
 def lex(module):
 	mark_newlinex(module)
@@ -26,7 +27,9 @@ def lex(module):
 
 	module.lexem = get_lexem(lexer)
 	module.lexem_raw = module.lexem + []
-	
+
+	mark_eopx(module)	
+
 	mark_opx_from_semix(module)
 
 	mark_unsafe_interpolation_lexem(module)

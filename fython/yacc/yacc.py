@@ -134,6 +134,7 @@ def p_dotbol_binary(p):
 def p_funbol(p):
 	"""
 	funbol	:	funbolR rparx
+			|	funbolR rketx
 	"""
 	p[0] = p[1] & p[2]
 
@@ -247,7 +248,9 @@ def p_lexem(p):
 			|	numberx
 			|	opx
 			|	commax
-			|	interpolationx
+			|	lkcax
+			|	lpcax
+			|	eopx
 	"""
 	p[0] = p[1]
 

@@ -18,13 +18,22 @@ class FunBol(Unit):
 		s ^ funx
 
 		s.klass_arg = 0
+		s.is_coarray_varpec = 0
+		s.coarray_ketbol = []
 
 	# &: add modifier
 	def __and__(s, other):
 		s ^ other
 
-		if other.unit not in [l.commax, l.rparx]:
-			s.args.append(other)
+		if s.is_coarray_varpec:
+			s.coarray_ketbol.append(other)
+
+		else:
+			if other.unit not in [l.commax, l.rparx, l.lpcax]:
+				s.args.append(other)
+
+			if other.is_lpcax:
+				s.is_coarray_varpec = 1
 
 		return s
 		
@@ -45,11 +54,19 @@ class FunBol(Unit):
 			b != s.klass_arg
 			b != ','
 			
-		for m in s.raw[1:]:
+		for m in s.args:
 			b != m
+			b != ','
 
-		b.rreplace(',)', ')')
-		
+		b.rstrip(',')
+		b != ')'
+	
+		if s.is_coarray_varpec:
+			b != '['
+			for m in s.coarray_ketbol:
+				b != m	
+			b.rreplace(',]', ']')
+			
 		return str(b)
 
 

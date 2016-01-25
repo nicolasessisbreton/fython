@@ -5,6 +5,9 @@ def make_print(p):
 		if t.is_stringx:
 			print_stringx(p, t)
 
+		elif t.is_opbol:
+			print_opbol(p, t)
+
 		elif t.is_ibol:
 			print_ibol(p, t)
 
@@ -12,11 +15,18 @@ def make_print(p):
 			p.linecod.throw(err.cannot_resolve_modifier, modifier=t.rep)
 
 
+def print_opbol(p, opbol):
+	fmt = opbol.modifier[0].args
+	args = opbol.modifier[2].args
+	print_format_args(p, opbol, fmt, args)
+
 def print_ibol(p, ibol):
 	fmt = ibol.target.args
 	args = ibol.rest[0].args
-
-	p != ibol.tbk_mark
+	print_format_args(p, ibol, fmt, args)
+	
+def print_format_args(p, s, fmt, args):
+	p != s.tbk_mark
 
 	p != 'write({:s}, '.format(p.unit)
 
@@ -33,9 +43,9 @@ def print_ibol(p, ibol):
 
 	p.rstrip(', ')
 
-	p != ibol.newline
+	p != s.newline
 
-	p != ibol.tbk_emark
+	p != s.tbk_emark
 
 def print_stringx(p, stringx):
 	p != stringx.tbk_mark

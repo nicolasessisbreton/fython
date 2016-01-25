@@ -41,7 +41,10 @@ class fyfc_ifort(Data):
 	-fast
 	""".replace('\n', ' ')
 
+	coarray = '-coarray'
+
 	error_regex = '(error #|ld:)'
+
 
 class fyfc_gfortran(Data):
 	cmd = 'gfortran'

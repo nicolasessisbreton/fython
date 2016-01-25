@@ -7,10 +7,13 @@ from .eofx import EofX
 from .funx import FunX
 from .indentx import IndentX
 from .interpolationx import InterpolationX
+from .eopx import EOpX
 from .opx import OpX
 from .iopx import IOpX
 from .linefeedx import LinefeedX
 from .lparx import LParX
+from .lpcax import LPCaX
+from .lkcax import LKCaX
 from .lketx import LKetX
 from .lpackagex import LPackageX
 from .namex import NameX

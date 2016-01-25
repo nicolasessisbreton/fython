@@ -49,7 +49,8 @@ funbolR	:	funx
 		|	funbolR element
 
 slicebol :	slicebolR rketx
-		
+		 |	slicebol ketbol		
+		 
 slicebolR	:	slicex
 			|	slicebolR element
 
@@ -78,6 +79,9 @@ lexem	:	stringx
 		|	numberx
 		|	opx
 		|	commax
+		|	lkcax
+		|	lpcax
+		|	eopx
 
 # precedence ; least first
 	left semix

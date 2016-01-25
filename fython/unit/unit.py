@@ -146,7 +146,15 @@ class Unit:
 	@property	
 	def is_ketbol(s):
 		return s.unit == l.ketbol
-		
+	
+	@property	
+	def is_lkcax(s):
+		return s.unit == l.lkcax
+
+	@property	
+	def is_lpcax(s):
+		return s.unit == l.lpcax
+	
 	@property	
 	def is_linefeedx(s):
 		return s.unit == l.linefeedx

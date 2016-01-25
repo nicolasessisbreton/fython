@@ -183,6 +183,18 @@ def t_commax_semix(t):
 
 	return t
 
+def t_lkcax(t):
+	r'\]\['
+	t.lexer.group += 1
+	t.value = LKCaX(t)
+	return t
+
+def t_lpcax(t):
+	r'\)\['
+	t.lexer.group += 1
+	t.value = LPCaX(t)
+	return t
+
 def t_lparx(t):
 	r'\('
 	t.lexer.group += 1

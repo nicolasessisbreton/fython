@@ -77,6 +77,8 @@ namex = 'namex'
 
 numberx = 'numberx'
 
+eopx = 'eopx'
+
 iopx = 'iopx'
 
 opx = 'opx'
@@ -94,6 +96,9 @@ rparx = 'rparx'
 
 lketx ='lketx'
 rketx = 'rketx'
+
+lpcax = 'lpcax'
+lkcax = 'lkcax'
 
 commentx = 'commentx'
 multiline_commentx = 'multiline_commentx'
@@ -125,6 +130,8 @@ lexems = (
 
 	namex,
 
+	eopx, 
+	
 	iopx,
 
 	opx,
@@ -142,6 +149,9 @@ lexems = (
 
 	lketx,
 	rketx,
+
+	lkcax,
+	lpcax,
 )
 
 # terminal

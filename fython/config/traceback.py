@@ -12,6 +12,6 @@ int_to_char = 'int_to_char'
 init_frame_tag = '<fytbk_init_frame>'
 del_frame_tag = '<fytbk_del_frame>'
 advance_line_tag = '<fytbk_advance_line>'
-int_to_char_tag = '<fytbk_int_to_char>'
+int_to_char_tag = 'fytbk_int_to_char'
 
 

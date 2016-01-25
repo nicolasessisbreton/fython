@@ -30,6 +30,7 @@ class Stack(Data):
 		s.need_link = 0
 		s.includedir_flag = ''
 		s.object_path_flag = ''	
+		s.has_coarray_flag = 0
 
 		if s.release:
 			s.cflag = fyfc.release
@@ -147,3 +148,10 @@ class Stack(Data):
 		source = ifort_position_re.sub('', source)
 
 		return source	
+
+	@property
+	def add_coarray_flag(s):
+		if not s.has_coarray_flag:
+			s.cflag += ' ' + fyfc.coarray
+			s.has_coarray_flag = 1
+		s.add_object(fyfc.coarray)
