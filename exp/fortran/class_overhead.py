@@ -68,7 +68,7 @@ contains
     integer i
     integer ndx
     real value
-    class(Base), pointer :: s
+    class(Base), allocatable :: s
 
     allocate(Derived :: s)
 

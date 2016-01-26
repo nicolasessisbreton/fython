@@ -5,14 +5,14 @@ linefeedx element newlinex . unaryR
 		break . breakruc
 		continue .continueruc
 		pass . passruc
-		template . templateruc
-		temp . templateruc
+		stop . stopruc
 		? . elementruc
 
 linefeedx element0 element1 element* terminal. genericR
 	element0
 		alloc . allocruc
 		class . classpec
+		critical . criticalruc
 		dealloc . deallocruc
 		def . defR
 			terminal
@@ -21,6 +21,7 @@ linefeedx element0 element1 element* terminal. genericR
 		elif . elifruc
 		else . elseruc
 		elwhere . elwhereruc
+		error . errorruc
 		if . ifruc
 		import . importpec
 		inline . inlineruc
@@ -31,6 +32,7 @@ linefeedx element0 element1 element* terminal. genericR
 		private . privateruc
 		public . publicruc
 		read . readruc
+		sync . syncruc
 		where . whereruc
 		while . whileruc
 		? . varpec	

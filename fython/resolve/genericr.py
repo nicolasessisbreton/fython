@@ -17,10 +17,12 @@ def genericR(linecod):
 instruction = {
 	l.alloc : l.allocruc,
 	l.classk : l.classpec,
+	l.critical : l.criticalruc,
 	l.dealloc : l.deallocruc,
 	l.elifk : l.elifruc,
 	l.elsek : l.elseruc,
 	l.elwhere : l.elwhereruc,
+	l.error : l.errorruc,
 	l.ifk : l.ifruc,
 	l.importk : l.importpec,
 	l.inline : l.inlineruc,
@@ -31,6 +33,7 @@ instruction = {
 	l.private : l.privateruc,
 	l.public : l.publicruc,
 	l.read : l.readruc,
+	l.sync : l.syncruc,
 	l.where : l.whereruc,
 	l.whilek : l.whileruc,
 }
