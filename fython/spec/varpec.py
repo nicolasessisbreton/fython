@@ -120,12 +120,10 @@ def add_name(s):
 	for n in s.name:
 		if n.is_slicebol:
 			n.is_coarray_varpec = 1
-			s.module.stack.add_coarray_flag
 			s.coarray_names.append(n.value)
 			
 		elif n.is_funbol:
 			if n.is_coarray_varpec:
-				s.module.stack.add_coarray_flag
 				s.coarray_names.append(n.value)
 
 		s.add_name(n.value)
