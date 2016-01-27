@@ -77,6 +77,9 @@ def make_ast(s):
 			elif m.value == 'res':
 				s.is_result = 1
 
+			elif m.value == 'alloc':
+				s.pre += 'allocatable'
+				
 			else:
 				s.pre += m
 
@@ -133,6 +136,7 @@ def make_production(s):
 
 	if s.is_intrinsic_type:
 		b != s.typename
+
 	else:
 		b != 'type({:s})'.format(s.typename)
 
@@ -170,5 +174,6 @@ def get_typename(s):
 		n = s.modifier[0]
 		if n.value == 'self':
 			return s.klass.name
+
 		else:
 			return n

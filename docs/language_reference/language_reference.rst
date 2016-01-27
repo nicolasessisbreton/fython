@@ -13,6 +13,8 @@ Language Reference
 
 .. include:: variable.rst
 
+.. include:: coarray.rst
+
 .. include:: function.rst
 
 .. include:: interface.rst

@@ -1,4 +1,9 @@
+import os
+from ctypes import *
+from numpy import *
+from time import time
 
+c = """
 module a
 
   integer, parameter :: n = 1e9
@@ -61,3 +66,21 @@ contains
   end subroutine
 
 end module
+"""
+
+open('a.f90','w').write(c)
+
+os.system('ifort a.f90 -shared -fpic -fast -o a.so')
+
+m = cdll.LoadLibrary('./a.so')
+
+print('test_solid', '...', end='')
+start = time()
+m.a_mp_test_solid_()
+print(time()-start)
+
+print('test_ref', '...', end='')
+start = time()
+m.a_mp_test_ref_()
+print(time()-start)
+
