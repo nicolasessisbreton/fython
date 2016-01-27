@@ -8,17 +8,15 @@ A coarray is defined by specifying its codimension in bracket
   real x[*]
   real y(10)[*]
 
-A local coarray is accessed with the slice notation
+A coarray is accessed with the slice notation
 
 .. code-block:: fython
 
- y[10] = 1 
+ x = 1 # this_image() x
+ x[2] = 2 # x on image 2
 
-A particular image coarray is accessed with a codimension slice 
-
-.. code-block:: fython
-
-  y[10][2] = 2
+ y[1] = 1 # this_image() y
+ y[:][2] = 1 # y on image 2
 
 To use coarray in Fython, you need to set the compiler to use with the
 ``set_compiler`` function
