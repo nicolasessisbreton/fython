@@ -42,7 +42,7 @@ class Stack(Data):
 		s.package_interpolation = Package_Interpolation()
 		
 	# module
-	def load(s, url, cwd, is_target=0):
+	def load(s, url, cwd, fy_parent = None, is_target=0):
 		if not isinstance(url, Url):
 			url = Url(
 				url = url,
@@ -50,6 +50,7 @@ class Stack(Data):
 				ext = exts.importable,
 				release = s.release,
 			)
+		url.fy_parent = fy_parent
 
 		if url.pickle in s.module:
 			return s.module[url.pickle]
@@ -68,8 +69,7 @@ class Stack(Data):
 		# run
 		if m.is_up_to_date:
 			for url in m.dependency:
-				url.fy_parent = m
-				s.load(url, cwd)
+				s.load(url, cwd, fy_parent=m)
 
 		else:
 			s.need_link = 1
