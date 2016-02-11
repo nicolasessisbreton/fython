@@ -16,6 +16,7 @@ class FortModule(Data):
 		s.value = url.dotted
 		s.module = url.fy_parent
 		s.stack = stack
+		s.dependency = []		
 		
 	def resolve(s):
 		pass		

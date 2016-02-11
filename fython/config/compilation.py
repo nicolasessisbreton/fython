@@ -42,6 +42,8 @@ class fyfc_ifort(Data):
 	""".replace('\n', ' ')
 
 
+	link = ''
+
 	error_regex = '(error #|ld:)'
 
 
@@ -63,6 +65,9 @@ class fyfc_gfortran(Data):
 	-O3
 	""".replace('\n', ' ')
 
+
+	link = ''
+
 	error_regex = '(Error:|ld:)'
 
 def use_ifort():
@@ -80,6 +85,7 @@ def set_compiler(
 	suffix,
 	debug,
 	release,
+	link,
 	error_regex,
 ):	
 	global fyfc
@@ -90,6 +96,7 @@ def set_compiler(
 		suffix= suffix,
 		debug = debug.replace('\n', ''),
 		release = release.replace('\n', ''),
+		link = link.replace('\n', ''),
 		error_regex = error_regex,
 	))
 

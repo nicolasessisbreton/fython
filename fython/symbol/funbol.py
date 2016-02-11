@@ -70,6 +70,9 @@ class FunBol(Unit):
 			else:
 				b != m
 
+			if m.is_eopx:
+				b.rstrip(',')
+
 			b != ','
 
 

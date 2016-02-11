@@ -29,7 +29,8 @@ class Stack(Data):
 		s.object_path = OrderedDict()
 		s.need_link = 0
 		s.includedir_flag = ''
-		s.object_path_flag = ''	
+		
+		s.object_path_flag = fyfc.link
 
 		if s.release:
 			s.cflag = fyfc.release

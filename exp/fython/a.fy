@@ -1,4 +1,4 @@
-|import sys; sys.path.append('/opt/intel')|
+# |import sys; sys.path.append('/opt/intel')|
 
 # import sys # sys not in standard pythonpath ; not supported for the moment
 # |sys.path.append('/opt/intel')|

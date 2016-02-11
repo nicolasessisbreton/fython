@@ -13,6 +13,7 @@ set_compiler(
 	suffix = '_',
 	debug = '',
 	release = '',
+	link = '',
 	error_regex = 'error:',
 )
 

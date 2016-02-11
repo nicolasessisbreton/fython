@@ -8,7 +8,7 @@ def restore_module(url, stack):
 		m = load(open(url.pickle, 'rb')) 
 
 	elif url.ext in exts.fort:
-		m = FortModule(url)
+		m = FortModule(url, stack)
 
 	else:
 		m = SoModule(url)
