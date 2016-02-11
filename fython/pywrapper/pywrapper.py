@@ -57,7 +57,7 @@ class PyWrapper(Data):
 			alias = alias,
 			unit = l.varpec,
 			typename = v.typename,
-			so_name = s.get_name_in_so(guid),
+			so_name = s.get_name_in_so(v.module.module_guid, guid),
 		)
 
 	def add_routpec(s, alias, r):
@@ -69,7 +69,7 @@ class PyWrapper(Data):
 			unit = l.routpec,
 			nb_argument = len(argument),
 			argument = argument,
-			so_name = s.get_name_in_so(guid),
+			so_name = s.get_name_in_so(r.module.module_guid, guid),
 		)
 
 	def add_module(s, alias, m):
@@ -177,10 +177,10 @@ class PyWrapper(Data):
 					lineno = s.tbk_lineno[:],
 				)
 	
-	def get_name_in_so(s, varname_guid):
+	def get_name_in_so(s, module_guid, varname_guid):
 		return '{prefix:s}{modname:s}{infix:s}{varname_guid:s}{suffix:s}'.format(
 			prefix = fyfc.prefix,
-			modname = s.module_guid,
+			modname = module_guid,
 			infix = fyfc.infix,
 			varname_guid = varname_guid,
 			suffix = fyfc.suffix,

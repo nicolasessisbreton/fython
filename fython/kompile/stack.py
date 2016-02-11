@@ -30,7 +30,7 @@ class Stack(Data):
 		s.need_link = 0
 		s.includedir_flag = ''
 		
-		s.object_path_flag = fyfc.link
+		s.object_path_flag = ''
 
 		if s.release:
 			s.cflag = fyfc.release
@@ -114,12 +114,13 @@ class Stack(Data):
 	def link(s):
 		cmd = """
 			cd {cache_dir:s}
-			{fortran_compiler:s} -shared -fpic -o {program_name:s} {object_path_flag:s}
+			{fortran_compiler:s} -shared -fpic -o {program_name:s} {object_path_flag:s} {link_flag:s}
 		""".format(
 			cache_dir = s.target.url.fycache_dir,
 			fortran_compiler = fyfc.cmd,
 			program_name = s.target.url.so_name,
 			object_path_flag = s.object_path_flag,
+			link_flag = fyfc.link,
 		)
 
 		out, error = shell(cmd)
