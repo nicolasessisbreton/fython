@@ -71,3 +71,34 @@ This is usefull for conditional inclusion of logging code for example.
   inlinde release f
 
 When no modifier is specified, the code is inlined in all compilation mode.
+
+Automatic argument completion
+dispense for the need to 
+write all the arguments of a function
+provided
+the name of the argument
+is the same than a name in the current scope.
+
+.. code-block:: fython
+
+  real x = 1
+  real y = 10
+
+  def f:
+    real in x
+    real in y
+
+  f(y=1.) # x added automatically
+  f() # both x and y added
+
+Automatic arguments completion
+works for keyword arguments call only.
+It cannot be mixed 
+with positional argument code.
+
+.. code-block:: fython
+
+ # with f as above 
+
+ f(y) # not supported
+ f(y=1.) # supported

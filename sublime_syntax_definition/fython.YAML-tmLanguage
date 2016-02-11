@@ -28,7 +28,7 @@ patterns:
 - name: comment.line.inline_fortran.fython
   match: (?i)\!(?!\=).*
 
-- match: (?i)\b(def|type)\s.*?\s?(\w+)(\s*\:)
+- match: (?i)\b(def)\s.*?\s?(\w+)(\s*\:)
   captures:
     '1': {name: storage.type.function.fython}
     '2': {name: entity.name.function.fython}
@@ -40,7 +40,7 @@ patterns:
   match: (?i)(true|false)
 
 - name: keyword.other.fython
-  match: (?i)\b(typedef|interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b
+  match: (?i)\b(interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b
 
 - name: keyword.control.fython
   match: (?i)\b(if|then|else|elif|while|where|for|continue|break|pass|return)\b

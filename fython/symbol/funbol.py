@@ -47,6 +47,8 @@ class FunBol(Unit):
 		return f			
 		
 	def __str__(s):
+		used_arg = []
+
 		b = Buffer()
 		b != '{:s}('.format(s.funx)
 
@@ -54,9 +56,32 @@ class FunBol(Unit):
 			b != s.klass_arg
 			b != ','
 			
+		nb_used_arg = 0
 		for m in s.args:
-			b != m
+			nb_used_arg += 1
+			if m.is_opbol:
+				if m.modifier[1].value == '=':
+					used_arg.append(m.modifier[0].value)
+					b != m.modifier[0].value
+					for m in m.modifier[1:]:
+						b != m
+				else:
+					b != m
+			else:
+				b != m
+
 			b != ','
+
+
+		ast = s.ast_target
+		if ast:
+			if ast.is_routpec:
+				arg = ast.argument
+				if nb_used_arg < len(arg):
+					for a in arg:
+						if a not in used_arg:
+							guid = s.module.get_guid_tag(a) 
+							b != '{name:s} = {guid:s},'.format(name=a, guid=guid)
 
 		b.rstrip(',')
 		b != ')'
