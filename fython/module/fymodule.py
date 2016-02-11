@@ -1,4 +1,6 @@
 import sys
+from os.path import exists
+from pickle import load
 from collections import OrderedDict
 from pickle import dump, HIGHEST_PROTOCOL
 from importlib import import_module
@@ -272,9 +274,15 @@ class FyModule:
 			s.add_solid_name(name)
 
 	def add_guided_name(s, name):
-		guid = gen_guid()
+		if name in s.previous_guid:
+			guid = s.previous_guid[name]
+
+		else:
+			guid = gen_guid()
+
 		s.name[0][name] = guid
 		s.guid[guid] = name
+
 		return guid
 
 	def add_solid_name(s, name):
@@ -299,12 +307,23 @@ class FyModule:
 		for key, item in state.items():
 			s.__dict__[key] = item
 
+	def load_previous_guid(s):
+		if s.stack.force or not exists(s.url.pickle):
+			s.previous_guid = {}
+			return
+
+		p = load(open(s.url.pickle, 'rb')) # previous module
+		s.module_guid = p.module_guid
+		s.previous_guid = p.name[0]
+
 	# parse
 	def get_and_parse(s, url, stack):
 		s.url = url
 		s.value = url.dotted
 		s.stack = stack	
+		s.load_previous_guid()
 		s.mangle_so_name()
+
 
 		if s.value == fytbk.url:
 			s.release = 1

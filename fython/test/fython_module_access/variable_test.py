@@ -16,7 +16,7 @@ shell('rm -rf a/ a.* b.*')
 
 writer(s)
 
-m = load('.a', release=1, verbose=0, run_main=0)
+m = load('.a', force=1, release=1, verbose=0, run_main=0)
 
 # print('**retrieved')
 r = m.r()
