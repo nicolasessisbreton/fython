@@ -68,6 +68,7 @@ class Stack(Data):
 		# run
 		if m.is_up_to_date:
 			for url in m.dependency:
+				url.fy_parent = m
 				s.load(url, cwd)
 
 		else:
