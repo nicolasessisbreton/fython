@@ -3,7 +3,7 @@ from .get_imported import get_imported
 
 def import_py(linecod):
 	m = linecod.modifier[1]
-
+	
 	if m.is_namex:
 		namexR(m, linecod)
 

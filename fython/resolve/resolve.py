@@ -7,6 +7,9 @@ def resolve(linecod):
 	if linecod.is_packagebol:
 		return	
 
+	elif linecod.modifier[0].is_newlinex:
+		return
+
 	elif linecod.has_ibol:
 		r = l.iruc
 

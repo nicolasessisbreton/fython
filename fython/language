@@ -99,7 +99,8 @@ lexem
 
 	namex # [\w\$]+
 
-	eopx #~ : or * ; element opx; when not precede by: commax, semix, lpcax, lkcax, lparx, lketx
+	eopx #~ : or * ; element opx; when precede by: commax, semix, lpcax, lkcax, lparx, lketx
+				  # or followed by: commax, rparx, rketx
 	
 	iopx #~ += -= *= /= = => 
 

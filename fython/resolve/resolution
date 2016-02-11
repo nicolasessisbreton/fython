@@ -1,3 +1,7 @@
+linecode is packagebol . nothing to do ; already handled by importec in previous linecod
+
+linefeedx newlinex . blank line, nothing to do ; can happen after an interpolation
+
 linefeedx ibol . iruc
 
 linefeedx element newlinex . unaryR

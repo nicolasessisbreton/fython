@@ -24,8 +24,8 @@ a Fortran or a Fython interface for it
 
 .. code-block:: fython
 
-  import mkl.include.mkl_vsl
-  import mkl.lib.intel64.libmkl_intel_lp64
+  import mkl.include.mkl_vsl(*)
+  import mkl.lib.intel64.libmkl_intel_lp64(*)
 
 The first import is the fortran interface ``mkl_vsl.f90``.
 The second import is for the shared object library ``libmkl_intel_lp64.so``.

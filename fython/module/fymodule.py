@@ -132,6 +132,10 @@ class FyModule:
 				t = expansion.pop(0)
 				s.expanded_lexem[0:0] = expansion
 
+			elif t.type == l.interpolationx:
+				return s.token()	
+				# interpolation produced nothing; must go to next token
+				
 			return t
 
 	def expand_lexem(s, t):
@@ -190,7 +194,7 @@ class FyModule:
 		try:
 			s.interpolant._reset_cache()
 
-			if '\n' in code:
+			if '\n' in code or ';' in code:
 				exec(
 					code,
 					s.interpolant.__dict__,
@@ -237,7 +241,10 @@ class FyModule:
 	def adjust_interpolant_endian(s, r):
 		# pop bofx, linefeedx, eox
 		r = r[2:-1]
-
+		if not r:
+			return r 
+			# r empty ; no lexem to import
+			
 		# adjust end
 		last = r[-1]
 		if last.value.unit == l.newlinex:

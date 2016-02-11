@@ -11,3 +11,6 @@ class SourceModule(Data):
 		s.source = source
 		s.source_lines = source.split('\n')
 		s.line_offset = line_offset
+
+	def verbose_tag(s, tag):
+		print('** {:s}: {:s} **'.format(s.value, tag))
