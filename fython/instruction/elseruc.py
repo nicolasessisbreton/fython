@@ -5,8 +5,6 @@ def elseruc(linecod):
 	s = linecod
 	b = s.i
 
-	b != s.tbk_mark
-
 	if s.previous_linecod_is_if_or_elif:
 		b != 'else'
 		b != s.newline
