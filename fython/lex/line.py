@@ -56,6 +56,9 @@ class Line:
 		b += 'current line indent level {:d}'.format(s.count_indent())	
 		s.throw(err.indentation_increased_by_more_than_one_level, b)
 
+	def count_indent(s):
+		return len(s.indent)
+		
 	def throw_space_tab_mix(s):
 		b = Buffer()
 		b += 'indentation is {:s}'.format(repr(s.indent))
