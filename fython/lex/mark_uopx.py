@@ -1,7 +1,7 @@
 from ..config import *
 from ..lexem import *
 
-def mark_eopx(module):
+def mark_uopx(module):
 	lexem = module.lexem
 
 	for i in range(1, len(lexem)):
@@ -11,16 +11,10 @@ def mark_eopx(module):
 		v = x.value.value
 
 		if t == l.opx:
-			if v in [':', '*']:
+			if v in ['-', '+']:
 				p = lexem[i-1].type
-				n = lexem[i+1].type
 
 				if p in [l.semix, l.commax, l.lpcax, l.lkcax, l.lparx, l.lketx, l.funx, l.slicex]:
-					x.type = l.eopx
+					x.type = l.uopx
 					x.value = v
-					x.value = EOpX(x)
-
-				elif n in [l.commax, l.rparx, l.rketx]:
-					x.type = l.eopx
-					x.value = v
-					x.value = EOpX(x)
+					x.value = UOpX(x)

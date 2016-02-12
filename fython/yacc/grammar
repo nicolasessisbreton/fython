@@ -64,7 +64,7 @@ ketbol	:	ketbolR rketx
 ketbolR :	lketx
 		|	ketbolR element
 
-opbol	:	opx element
+opbol	:	uopx element
 		|	element opx element
 
 packagebol	:	packagebolR rpackagex	
@@ -87,4 +87,5 @@ lexem	:	stringx
 	left semix
 	left opx
 	left bdotx
+	right uopx
 	right udotx	

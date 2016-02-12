@@ -26,3 +26,4 @@ from .semix import SemiX
 from .slicex import SliceX
 from .stringx import StringX
 from .udotx import UDotX
+from .uopx import UOpX

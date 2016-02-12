@@ -82,6 +82,7 @@ eopx = 'eopx'
 iopx = 'iopx'
 
 opx = 'opx'
+uopx = 'uopx'
 
 udotx = 'udotx'
 bdotx = 'bdotx'
@@ -135,7 +136,8 @@ lexems = (
 	iopx,
 
 	opx,
-
+	uopx,
+	
 	udotx,
 	bdotx,
 
