@@ -9,6 +9,7 @@ from .mark_unsafe_interpolation_lexem import mark_unsafe_interpolation_lexem
 from .mark_opx_from_semix import mark_opx_from_semix
 from .mark_eopx import mark_eopx
 from .mark_uopx import mark_uopx
+from .mark_ropx import mark_ropx
 
 def lex(module):
 	mark_newlinex(module)
@@ -32,6 +33,8 @@ def lex(module):
 	mark_eopx(module)	
 
 	mark_uopx(module)
+	
+	mark_ropx(module)
 
 	mark_opx_from_semix(module)
 

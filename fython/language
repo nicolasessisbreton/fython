@@ -99,15 +99,18 @@ lexem
 
 	namex # [\w\$]+
 
-	eopx #~ : or * ; element opx; when precede by: commax, semix, lpcax, lkcax, lparx, lketx, funx, slicex
-				  # or followed by: commax, rparx, rketx
 	
 	iopx #~ += -= *= /= = => 
 
 	opx # + - * / ** < <= == != => > and or : =
-	uopx # opx when precede by: semix, commax, lparx, lketx, lpcax, lkcax, funx, slicex
 
-	notx # not ; unary
+	eopx #~ : or * ; opx when precede by: commax semix lpcax lkcax lparx lketx funx slicex
+				  # and followed by: commax rparx rketx
+
+	uopx # + or - when precede by: semix commax lparx lketx lpcax lkcax funx slicex
+		 # : when not eopx and prececde by: semix commax lparx lketx lpcax lkcax funx slicex	
+
+	ropx # : when not eopx and followed by: commax rparx rketx
 
 	udotx #~ (\s+)\.+ 
 	bdotx #~ \.

@@ -66,6 +66,7 @@ ketbolR :	lketx
 
 opbol	:	uopx element
 		|	element opx element
+		| 	element ropx
 
 packagebol	:	packagebolR rpackagex	
 

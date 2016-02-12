@@ -1,6 +1,17 @@
 from ..config import *
 from ..lexem import *
 
+preceder = [
+	l.semix,
+	l.commax,
+	l.lpcax,
+	l.lkcax,
+	l.lparx,
+	l.lketx,
+	l.funx,
+	l.slicex,
+]
+
 def mark_uopx(module):
 	lexem = module.lexem
 
@@ -11,10 +22,10 @@ def mark_uopx(module):
 		v = x.value.value
 
 		if t == l.opx:
-			if v in ['-', '+']:
+			if v in ['-', '+', ':']:
 				p = lexem[i-1].type
 
-				if p in [l.semix, l.commax, l.lpcax, l.lkcax, l.lparx, l.lketx, l.funx, l.slicex]:
+				if p in preceder:
 					x.type = l.uopx
 					x.value = v
 					x.value = UOpX(x)

@@ -64,9 +64,6 @@ class SliceBol(Unit):
 		b != '{:s}('.format(s.slicex)
 
 		for m in s.args:
-			if m.is_eopx:
-				b.rstrip(',')
-				
 			b != m
 			b != ','
 

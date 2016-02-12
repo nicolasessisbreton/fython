@@ -1,6 +1,19 @@
 from ..config import *
 from ..lexem import *
 
+preceder = [
+	l.semix, 
+	l.commax, 
+	l.lpcax, 
+	l.lkcax, 
+	l.lparx, 
+	l.lketx, 
+	l.funx, 
+	l.slicex,
+]
+
+follower = [l.commax, l.rparx, l.rketx]
+
 def mark_eopx(module):
 	lexem = module.lexem
 
@@ -15,12 +28,7 @@ def mark_eopx(module):
 				p = lexem[i-1].type
 				n = lexem[i+1].type
 
-				if p in [l.semix, l.commax, l.lpcax, l.lkcax, l.lparx, l.lketx, l.funx, l.slicex]:
-					x.type = l.eopx
-					x.value = v
-					x.value = EOpX(x)
-
-				elif n in [l.commax, l.rparx, l.rketx]:
+				if p in preceder and n in follower:
 					x.type = l.eopx
 					x.value = v
 					x.value = EOpX(x)

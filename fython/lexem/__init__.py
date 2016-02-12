@@ -27,3 +27,4 @@ from .slicex import SliceX
 from .stringx import StringX
 from .udotx import UDotX
 from .uopx import UOpX
+from .ropx import ROpX

@@ -208,6 +208,7 @@ def p_ketbolR_cont(p):
 def p_opbol_unary(p):
 	"""
 	opbol	:	uopx element
+			|	element ropx
 	"""
 	p[0] = OpBol(p[1], p[2])
 

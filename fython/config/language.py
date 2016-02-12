@@ -83,6 +83,7 @@ iopx = 'iopx'
 
 opx = 'opx'
 uopx = 'uopx'
+ropx = 'ropx'
 
 udotx = 'udotx'
 bdotx = 'bdotx'
@@ -137,6 +138,7 @@ lexems = (
 
 	opx,
 	uopx,
+	ropx,
 	
 	udotx,
 	bdotx,
