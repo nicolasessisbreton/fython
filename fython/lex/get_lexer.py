@@ -130,8 +130,14 @@ def t_iopx(t):
 	t.value = IOpX(t)
 	return t
 
+def t_exponent(t):
+	r'\*\*'
+	t.type = l.opx
+	t.value = OpX(t)
+	return t
+
 def t_opx(t):
-	r'(\+|\-|\*|/|\*\*|<|<=|==|!=|=>|>|:|=)' 
+	r'(\+|\-|\*|/|<|<=|==|!=|=>|>|:|=)' 
 	
 	if t.value == '!=':
 		t.value = '/='	
