@@ -4,9 +4,9 @@ from numpy import array, empty
 class FyType:
 	def __init__(
 		s, 
-		size = 4,
 		value = None,
 		shape = [],
+		size = 4,
 	):
 		s.size = size
 		s.basepointer = POINTER(s.basetype)
