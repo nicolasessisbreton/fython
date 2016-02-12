@@ -5,8 +5,6 @@ def elifruc(linecod):
 	s = linecod
 	b = s.i
 	
-	b != s.tbk_mark
-
 	b != 'else if ({:s}) then'.format(s.modifier_only_direct_production)
 	b != s.newline
 

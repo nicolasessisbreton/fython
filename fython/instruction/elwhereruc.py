@@ -5,8 +5,6 @@ def elwhereruc(linecod):
 	s = linecod
 	b = s.i
 
-	b != s.tbk_mark
-
 	b != 'else where ({:s})'.format(s.modifier_only_direct_production)
 	b != s.newline
 
