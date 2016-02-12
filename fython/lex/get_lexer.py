@@ -130,21 +130,32 @@ def t_iopx(t):
 	t.value = IOpX(t)
 	return t
 
-def t_exponent(t):
-	r'\*\*'
-	t.type = l.opx
-	t.value = OpX(t)
-	return t
-
-def t_opx(t):
-	r'(\+|\-|\*|/|<|<=|==|!=|=>|>|:|=)' 
-	
+def t_opx_duo(t):
+	r'(\*\*|<=|==|!=|>=|=>)'
 	if t.value == '!=':
 		t.value = '/='	
 
+	t.type = l.opx
+
 	if not t.lexer.group:
 		v = t.value
-		if v in ['=', '=>']:
+		if v  == '=>':
+			t.type = l.iopx
+			t.value = IOpX(t)
+
+		else:
+			t.value = OpX(t)
+
+	else:
+		t.value = OpX(t)
+
+	return t
+
+def t_opx(t):
+	r'(\+|\-|\*|/|<|>|:|=)' 
+	if not t.lexer.group:
+		v = t.value
+		if v == '=':
 			t.type = l.iopx
 			t.value = IOpX(t)
 
