@@ -169,7 +169,7 @@ class PyWrapper(Data):
 			s(rout.so_name)()	
 
 		if s.debug:
-			if s.tbk_ndx[:] != 0:
+			if s.tbk_ndx[:] > 0:
 				stack_trace(
 					last_error = s.tbk_last_error[:],
 					ndx = s.tbk_ndx[:],

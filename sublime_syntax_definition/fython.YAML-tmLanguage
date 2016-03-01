@@ -22,11 +22,8 @@ patterns:
   begin: (?i)\"\"\"
   end: (?i)\"\"\"
 
-- name: comment.line.pound.fython
+- name: comment.line.fython
   match: (?i)\#.*
-
-- name: comment.line.inline_fortran.fython
-  match: (?i)\!(?!\=).*
 
 - match: (?i)\b(def)\s.*?\s?(\w+)(\s*\:)
   captures:

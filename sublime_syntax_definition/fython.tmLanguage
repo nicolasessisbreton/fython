@@ -42,13 +42,7 @@
 			<key>match</key>
 			<string>(?i)\#.*</string>
 			<key>name</key>
-			<string>comment.line.pound.fython</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?i)\!(?!\=).*</string>
-			<key>name</key>
-			<string>comment.line.inline_fortran.fython</string>
+			<string>comment.line.fython</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -65,7 +59,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?i)\b(def|type)\s.*?\s?(\w+)(\s*\:)</string>
+			<string>(?i)\b(def)\s.*?\s?(\w+)(\s*\:)</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -81,7 +75,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(typedef|interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b</string>
+			<string>(?i)\b(interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b</string>
 			<key>name</key>
 			<string>keyword.other.fython</string>
 		</dict>
