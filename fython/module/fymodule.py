@@ -81,6 +81,12 @@ class FyModule:
 		s.is_varpec = 0
 		s.is_routpec = 0
 
+		s.tbk_mark_on = 1
+
+	@property
+	def tbk_mark_off(s):
+		return not s.tbk_mark_on
+		
 	def throw(s, error, line=None, msg=None, return_only=None, **kwargs):
 		b = Buffer()
 		

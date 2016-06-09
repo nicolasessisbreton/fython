@@ -63,9 +63,15 @@ class Unit:
 		else:
 			return ''
 
+	def tbk_mark_enable(s):
+		s.module.tbk_mark_on = 1
+
+	def tbk_mark_disable(s):
+		s.module.tbk_mark_on = 0
+
 	@property
 	def tbk_mark(s):
-		if s.release:
+		if s.release or s.module.tbk_mark_off:
 			return ''
 
 		elif s.module.tbk_frame_rout[s.level]:
@@ -78,7 +84,7 @@ class Unit:
 
 	@property
 	def tbk_emark(s):
-		if s.release:
+		if s.release or s.module.tbk_mark_off:
 			return ''
 		else:
 			return tbk.close_line()

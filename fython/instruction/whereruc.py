@@ -13,12 +13,12 @@ def whereruc(linecod):
 
 	s.indent
 
-	# s.tbk_mark_disable()
+	s.tbk_mark_disable()
 
 	for x in s.childcod_target:
 		resolve(x)
 
-	# s.tbk_mark_enable()
+	s.tbk_mark_enable()
 
 	s.dedent		
 	
