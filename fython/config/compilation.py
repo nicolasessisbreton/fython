@@ -132,3 +132,41 @@ def find_compiler():
 
 	except Exception as e:
 		raise e 
+
+# various compilers
+def use_mkl():
+	set_compiler(
+		cmd = 'ifort',
+		prefix = '',
+		infix = '_mp_',
+		suffix = '_',
+		debug = """
+			-g 
+			-traceback
+			-gen-interfaces 
+			-warn all
+			-check all
+			-fpe0
+			-ftrapuv
+			-I/opt/intel/mkl/include
+		""",
+		release = """
+			-fast
+			-I/opt/intel/mkl/include
+		""",
+		link = """
+			-L/opt/intel/mkl/lib/intel64 
+			-lmkl_intel_lp64 
+			-lmkl_core
+			-lmkl_sequential 
+			-lpthread 
+			-lm
+		""",
+		error_regex = '(error #|ld:)',
+	)
+
+
+	# needed to load mkl
+	# see: https://answers.launchpad.net/dolfin/+question/205219
+	import ctypes
+	ctypes.CDLL('libmkl_rt.so', ctypes.RTLD_GLOBAL)

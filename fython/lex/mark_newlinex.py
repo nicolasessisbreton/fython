@@ -194,7 +194,7 @@ def p_ket(p):
 
 def p_error(p):
 	p.lexer.module.throw(
-		error_type = err.unbalanced_parenthesis,
+		error = err.unbalanced_parenthesis,
 		line = p.lineno,
 		position = p.lexpos,
 	)
