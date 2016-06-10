@@ -12,16 +12,24 @@ def find_lines(module):
 
 	# find tabbing method:
 	tab_used = '\t'
-	for i in range(1, n):
-		if lines[i-1].has_colon:
-			space = lines[i].indent
+	colon_seen = lines[0].has_colon
+	for line in lines[1:]:
+		if line.is_empty:
+			continue
+
+		elif colon_seen:
+			space = line.indent
 			tab_here = space.count('\t')
 			space_here = space.count(' ')
 			if tab_here != 0 and space_here !=0:
-				lines[i].throw_space_tab_mix()
-			else:
+				line.throw_space_tab_mix()
+			elif tab_here == 0 and space_here != 0:
 				tab_used = space
 				break
+			else:
+				break
+		else:
+			colon_seen = line.has_colon
 
 	# no indent on first line
 	line = lines[0]
