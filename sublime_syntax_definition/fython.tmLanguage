@@ -123,7 +123,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)(\s+)\b(sum|product|count|matmul|ceiling|max|min|maxval|minval|maxloc|minloc)(?=\s*\()</string>
+			<string>(?i)[\s]\b(sum|product|count|matmul|ceiling|max|min|maxval|minval|maxloc|minloc)(?=\s*\()</string>
 			<key>name</key>
 			<string>support.function.fython</string>
 		</dict>

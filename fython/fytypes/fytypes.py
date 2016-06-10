@@ -83,6 +83,17 @@ class FyType:
 		return r
 
 
+	def get_shape(s, args):
+		shape = []
+		
+		for x in args:
+			if isinstance(x, FyType):
+				shape.append( x[:] )
+			else:
+				shape.append( x )
+
+		return shape
+
 class Real(FyType):
 	name = 'real'
 	basetype = c_float
@@ -116,3 +127,23 @@ class Char(FyType):
 
 	def get_root_type(s):
 		return s.basetype * s.size
+
+# specialized constructor
+# *args gives shape
+class IntS(Int):
+	def __init__(s, *args, size = 4):
+		Int.__init__(
+			s = s,
+			size = size,
+			value = None,
+			shape = s.get_shape(args),
+		)
+
+class RealS(Real):
+	def __init__(s, *args, size = 4):
+		Real.__init__(
+			s = s,
+			size = size,
+			value = None,
+			shape = s.get_shape(args),
+		)

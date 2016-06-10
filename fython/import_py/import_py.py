@@ -18,6 +18,7 @@ def import_py(linecod):
 
 	elif m.is_childcod:
 		pass # nothing to do, not supported for the moment, but is easy to add, see importpec.py: line 15
+		
 	else:
 		m.throw(err.cannot_resolve_modifier)
 

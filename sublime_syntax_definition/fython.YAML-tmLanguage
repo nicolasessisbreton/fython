@@ -61,7 +61,7 @@ patterns:
   match: (?i)\b(selected_real_kind|allocated|shape)(?=\s*\()
 
 - name: support.function.fython
-  match: (?i)(\s+)\b(sum|product|count|matmul|ceiling|max|min|maxval|minval|maxloc|minloc)(?=\s*\()
+  match: (?i)[\s]\b(sum|product|count|matmul|ceiling|max|min|maxval|minval|maxloc|minloc)(?=\s*\()
 
 - name: support.function.fython
   match: (?i)\b(d?(sqrt|abs|erf|log|exp))(?=\s*\()
