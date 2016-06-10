@@ -32,6 +32,8 @@ def find_lines(module):
 
 	# verify consistent indent
 	previous_indent = 0
+	colon_seen = lines[0].has_colon
+
 	for i in range(1, n):
 		pline = lines[i-1]
 		line = lines[i]
@@ -42,13 +44,15 @@ def find_lines(module):
 
 		if line.is_empty:
 			continue	
+
 		elif current_indent > previous_indent:
-			if not pline.has_colon:
+			if not colon_seen:
 				line.throw_indentation_without_colon()
 
 			if current_indent > previous_indent + 1:
 				line.throw_indentation_increased_by_more_than_one_level(pline)
 
 		previous_indent = current_indent
+		colon_seen = line.has_colon
 
 	module.lines = lines
