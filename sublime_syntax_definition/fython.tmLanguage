@@ -141,7 +141,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(cons|spec|iso|recursive|pure|elemental|bind|iso|abstract|allocatable|dimension|pointer|target|intent|parameter)\b</string>
+			<string>(?i)\s\b(cons|spec|iso|recursive|pure|elemental|bind|iso|abstract|allocatable|dimension|pointer|target|intent|parameter)\b</string>
 			<key>name</key>
 			<string>storage.modifier.fython</string>
 		</dict>

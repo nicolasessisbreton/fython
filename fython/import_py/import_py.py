@@ -3,7 +3,7 @@ from .get_imported import get_imported
 
 def import_py(linecod):
 	m = linecod.modifier[1]
-	
+
 	if m.is_namex:
 		namexR(m, linecod)
 
@@ -16,6 +16,8 @@ def import_py(linecod):
 	elif m.is_ibol:
 		ibolR(m, linecod)
 
+	elif m.is_childcod:
+		pass # nothing to do, not supported for the moment, but is easy to add, see importpec.py: line 15
 	else:
 		m.throw(err.cannot_resolve_modifier)
 

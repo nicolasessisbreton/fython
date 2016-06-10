@@ -70,7 +70,7 @@ patterns:
   match: (?i)\b(trim|adjustl|dot_product|all|any|reshape|transpose)(?=\s*\()
 
 - name: storage.modifier.fython
-  match: (?i)\b(cons|spec|iso|recursive|pure|elemental|bind|iso|abstract|allocatable|dimension|pointer|target|intent|parameter)\b
+  match: (?i)\s\b(cons|spec|iso|recursive|pure|elemental|bind|iso|abstract|allocatable|dimension|pointer|target|intent|parameter)\b
 
 - name: storage.type.fython
   match: (?i)\b(int|char|bool|integer|real|complex|logical|character)\b
