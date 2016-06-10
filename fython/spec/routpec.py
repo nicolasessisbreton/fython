@@ -189,8 +189,9 @@ def treat_linecod(s):
 					s.is_wrappable = 0
 
 			elif x.is_result:
-				s.result = x.name[0]
-				s.post += 'result({:s})'.format(s.result)
+				n = x.name[0].value
+				s.result = n
+				s.post += 'result({:s})'.format(n)
 				s.is_wrappable = 0
 
 	s.argument_prod.rstrip(',')
