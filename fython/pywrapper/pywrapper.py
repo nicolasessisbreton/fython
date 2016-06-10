@@ -28,6 +28,8 @@ class PyWrapper(Data):
 		s.release = module.release
 		s.debug = module.debug
 
+		s.ignore_tbk_error = 0
+
 		s.entity = {}
 		for alias , u in module.ast[0].items():
 			if u.is_varpec:
@@ -103,6 +105,9 @@ class PyWrapper(Data):
 	def quiet(s):
 		s.tbk_verbose[:] = 0
 
+	def ignore_error(s):
+		s.ignore_tbk_error = 1
+
 	# s(): get object in so
 	def __call__(s, name):
 		return s.so.__getattr__(name)
@@ -168,7 +173,7 @@ class PyWrapper(Data):
 
 			s(rout.so_name)()	
 
-		if s.debug:
+		if s.debug and not s.ignore_tbk_error:
 			if s.tbk_ndx[:] > 0:
 				stack_trace(
 					last_error = s.tbk_last_error[:],
