@@ -21,7 +21,7 @@ def elementruc(linecod):
 	elif s.has_funbol:
 		if s.modifier[0].value not in intrinsic_subroutine:
 			b != 'call '
-	
+
 	b != ruc
 
 	b != s.newline
