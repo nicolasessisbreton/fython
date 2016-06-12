@@ -4,7 +4,7 @@ def returnruc(linecod):
 	s = linecod
 	b = s.i
 
-	# b != s.tbk_eframe # todo: unfinished
+	b != s.tbk_eframe 
 	
 	b != l.riturn
 

@@ -7,9 +7,6 @@ def unaryR(linecod):
 		if s.value in instruction:
 			return instruction[s.value]
 
-		elif s.value == l.riturn:
-			return l.returnruc
-
 		else:
 			return l.elementruc
 	else:
@@ -20,4 +17,5 @@ instruction = {
 	l.continuek : l.continueruc,
 	l.passk : l.passruc,
 	l.stop : l.stopruc,
+	l.riturn : l.returnruc,
 }

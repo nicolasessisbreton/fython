@@ -9,8 +9,8 @@ linefeedx element newlinex . unaryR
 		break . breakruc
 		continue .continueruc
 		pass . passruc
-		stop . stopruc
 		return . returnruc
+		stop . stopruc
 		? . elementruc
 
 linefeedx element0 element1 element* terminal. genericR
