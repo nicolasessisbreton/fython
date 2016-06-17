@@ -1,5 +1,13 @@
 from ..config import *
 
+bitwise_inplace = {
+	'<<=' : 'lshift',
+	'&='  : 'iand',
+	'^='  : 'ieor',
+	'|='  : 'ior',
+	'>>=' : 'rshift',
+}
+
 def iruc(linecod):
 	s = linecod.modifier[0] # ibol
 	b = s.i
@@ -43,6 +51,13 @@ def iruc(linecod):
 			b != '{target:s} {iop:s} {rest:s}'.format(
 				target = target, 
 				iop = iop, 
+				rest = rest,
+			)
+
+		elif iop in bitwise_inplace:
+			b != '{target:s} = {iop:s}({target:s}, {rest:s})'.format(
+				target = target, 
+				iop = bitwise_inplace[iop], 
 				rest = rest,
 			)
 

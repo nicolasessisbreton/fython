@@ -80,6 +80,7 @@ def p_symbol(p):
 			|	opbol
 			|	packagebol
 			|	semibol
+			|	bitbol
 	"""
 	p[0] = p[1]
 
@@ -241,6 +242,12 @@ def p_semibol(p):
 	semibol	:	element semix element
 	"""
 	p[0] = SemiBol(p[1], p[2], p[3])
+
+def p_bitbol(p):
+	"""
+	bitbol 	: 	element bopx element
+	"""
+	p[0] = BitBol(p[1], p[2], p[3])
 			
 def p_lexem(p):
 	"""

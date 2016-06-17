@@ -60,6 +60,8 @@ symbol
 	parbol # lparx element* rparx
 	ketbol # lketx element* rketx
 
+	bitbol # element bopx element
+	
 	opbol # opx element | element opx element
 
 	packagebol # lpackagex (element|commax)* rpackagex	
@@ -100,9 +102,11 @@ lexem
 	namex # [\w\$]+
 
 	
-	iopx #~ += -= *= /= = => 
+	iopx #~ += -= *= /= = => <<= &= ^= |= >>=
 
-	opx # + - * / ** < <= == != => > and or : =
+	bopx # << & ^ | >> ; bitwise operator
+
+	opx # + - * / ** < <= == != => > and or : = 
 
 	eopx #~ : or * ; opx when precede by: commax semix lpcax lkcax lparx lketx funx slicex
 				  # and followed by: commax rparx rketx

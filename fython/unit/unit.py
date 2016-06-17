@@ -138,6 +138,10 @@ class Unit:
 		return s.unit == l.eopx
 
 	@property
+	def is_opx(s):
+		return s.unit == l.opx
+
+	@property
 	def is_enumbol(s):
 		return s.unit == l.enumbol
 

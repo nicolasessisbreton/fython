@@ -42,6 +42,8 @@ slicebol = 'slicebol'
 parbol = 'parbol'
 ketbol = 'ketbol'
 
+bitbol = 'bitbol'
+
 opbol = 'opbol'
 
 packagebol = 'packagebol'
@@ -80,6 +82,8 @@ numberx = 'numberx'
 eopx = 'eopx'
 
 iopx = 'iopx'
+
+bopx = 'bopx'
 
 opx = 'opx'
 uopx = 'uopx'
@@ -136,6 +140,8 @@ lexems = (
 	
 	iopx,
 
+	bopx,
+	
 	opx,
 	uopx,
 	ropx,

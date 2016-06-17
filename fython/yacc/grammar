@@ -28,7 +28,8 @@ symbol	:	dotbol
 		| 	opbol
 		|	packagebol
 		|	semibol		
-
+		|	bitbol
+		
 enumbol :	enumR newlinex
 		
 enumR 	:	colonx
@@ -74,6 +75,8 @@ packagebolR 	: 	lpackagex
 				|	packagebolR element
 	
 semibol 	: 	element semix element			
+
+bitbol	:	element bopx element
 
 lexem	:	stringx
 		|	namex

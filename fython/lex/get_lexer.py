@@ -126,10 +126,15 @@ def t_namex(t):
 	return t
 
 def t_iopx(t):
-	r'(\+=|-=|\*=|/=|\*\*=)' 
+	r'(\+=|-=|\*=|/=|\*\*=|<<=|&=|\^=|[|]=|>>=)' 
 	t.value = IOpX(t)
 	return t
 
+def t_bopx(t):
+	r'(<<|&|\^|[|]|>>)'
+	t.value = BOpX(t)
+	return t
+	
 def t_opx_duo(t):
 	r'(\*\*|<=|==|!=|>=|=>)'
 	if t.value == '!=':
