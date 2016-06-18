@@ -206,6 +206,12 @@ def p_ketbolR_cont(p):
 	"""
 	p[0] = p[1] & p[2]
 
+def p_bitbol(p):
+	"""
+	bitbol 	: 	element bopx element
+	"""
+	p[0] = BitBol(p[1], p[2], p[3])
+			
 def p_opbol_unary(p):
 	"""
 	opbol	:	uopx element
@@ -243,12 +249,6 @@ def p_semibol(p):
 	"""
 	p[0] = SemiBol(p[1], p[2], p[3])
 
-def p_bitbol(p):
-	"""
-	bitbol 	: 	element bopx element
-	"""
-	p[0] = BitBol(p[1], p[2], p[3])
-			
 def p_lexem(p):
 	"""
 	lexem	:	stringx
@@ -265,6 +265,7 @@ def p_lexem(p):
 precedence = (
 	('left', l.semix,),
 	('left' , l.opx,),
+	('left' , l.bopx,),
 	('left', l.bdotx,),
 	('right', l.udotx,), 
 )

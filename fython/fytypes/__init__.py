@@ -5,5 +5,9 @@ from .fytypes import (
 
 	IntS,
 	RealS,
+	CharS,
 
+	IntV,
+	RealV,
+	CharV,
 )

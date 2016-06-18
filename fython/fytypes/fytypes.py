@@ -83,7 +83,7 @@ class FyType:
 		return r
 
 
-	def get_shape(s, args):
+	def get_value_from_args(s, args):
 		shape = []
 		
 		for x in args:
@@ -136,7 +136,7 @@ class IntS(Int):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_shape(args),
+			shape = s.get_value_from_args(args),
 		)
 
 class RealS(Real):
@@ -145,5 +145,42 @@ class RealS(Real):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_shape(args),
+			shape = s.get_value_from_args(args),
+		)
+
+class CharS(Real):
+	def __init__(s, *args, size = 4):
+		Char.__init__(
+			s = s,
+			size = size,
+			value = None,
+			shape = s.get_value_from_args(args),
+		)
+
+# *args gives value
+class IntV(Int):
+	def __init__(s, *args, size = 4):
+		Int.__init__(
+			s = s,
+			size = size,
+			value = s.get_value_from_args(args),
+			shape = None,
+		)
+
+class RealV(Real):
+	def __init__(s, *args, size = 4):
+		Real.__init__(
+			s = s,
+			size = size,
+			value = s.get_value_from_args(args),
+			shape = None,
+		)
+
+class CharV(Real):
+	def __init__(s, *args, size = 4):
+		Char.__init__(
+			s = s,
+			size = size,
+			value = s.get_value_from_args(args),
+			shape = None,
 		)

@@ -35,7 +35,6 @@ class BitBol(Unit):
 		b += s.left
 		b += ','
 		b += s.right
-		b += modifier
 		b += ')'
 
 		return str(b)

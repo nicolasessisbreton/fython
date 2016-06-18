@@ -67,7 +67,7 @@ symbol
 	packagebol # lpackagex (element|commax)* rpackagex	
 
 	semibol # element semix element	
-	
+
 		lexem
 
 lexem

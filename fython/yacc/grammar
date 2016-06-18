@@ -29,7 +29,7 @@ symbol	:	dotbol
 		|	packagebol
 		|	semibol		
 		|	bitbol
-		
+
 enumbol :	enumR newlinex
 		
 enumR 	:	colonx
@@ -65,6 +65,8 @@ ketbol	:	ketbolR rketx
 ketbolR :	lketx
 		|	ketbolR element
 
+bitbol	:	element bopx element
+
 opbol	:	uopx element
 		|	element opx element
 		| 	element ropx
@@ -75,8 +77,6 @@ packagebolR 	: 	lpackagex
 				|	packagebolR element
 	
 semibol 	: 	element semix element			
-
-bitbol	:	element bopx element
 
 lexem	:	stringx
 		|	namex
@@ -90,6 +90,7 @@ lexem	:	stringx
 # precedence ; least first
 	left semix
 	left opx
+	left bopx
 	left bdotx
 	right uopx
 	right udotx	
