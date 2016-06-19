@@ -36,6 +36,9 @@ def routpec(linecod):
 		if s.is_solid_element:
 			make_production(s)
 
+	elif s.is_noprod_element:
+		pass
+
 	else:
 		make_production(s)
 
@@ -91,6 +94,8 @@ def get_attribute(s):
 	r = []
 	if s.parent:
 		for m in s.parent.modifier_only_for_rout:
+			if m.value == 'noprod':
+				continue
 			c = m.clone(s.module)
 			r.append(c)
 
@@ -145,6 +150,9 @@ def treat_attribute(s):
 
 			elif m.value == 'temp':
 				s.is_temp_element = 1
+
+			elif m.value == 'noprod':
+				s.is_noprod_element = 1
 				
 			elif m.value in ['pget', 'pset']:
 				continue
@@ -169,7 +177,7 @@ def treat_linecod(s):
 
 	for x in s.linecod:
 		resolve(x)
-		
+	
 		if x.is_varpec:
 			if x.is_self:
 				n = x.name[0]	

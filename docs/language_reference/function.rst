@@ -102,3 +102,19 @@ with positional argument code.
 
  f(y) # not supported
  f(y=1.) # supported
+
+
+If a function should not be compiled,
+used the ``noprod`` modifier.
+This is usefull when the function is only used as a spec provider,
+and that the function should not be compiled.
+
+.. code-block:: fython
+
+  def noprod f:
+    real x(n) # n is not defined, this would give an error if compiled
+
+  def spec(f) g:
+    int in n
+
+    x += 1 # definition of x is provided by the spec of f

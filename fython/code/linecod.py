@@ -34,6 +34,7 @@ class LineCod(Unit):
 
 		s.is_temp_element = 0
 		s.is_solid_element = 0
+		s.is_noprod_element = 0	
 		
 	# &: modifier added
 	def __and__(s, other):
