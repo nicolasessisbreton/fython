@@ -107,8 +107,8 @@ def get_linecod(s):
 	r = []
 
 	if s.parent:
-		c = s.parent.childcod.clone(s.module)
-		r.extend(c.linecod)
+		for l in s.parent.linecod:
+			r.append(l.clone(s.module))
 
 	r.extend(s.childcod_target)
 
