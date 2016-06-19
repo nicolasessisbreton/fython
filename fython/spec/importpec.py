@@ -3,6 +3,7 @@ from ..config import *
 def importpec(linecod):
 	s = linecod
 
+	# prep
 	if s.is_import_py:
 		return
 		
@@ -13,22 +14,25 @@ def importpec(linecod):
 	else:
 		s.packagebol = 0
 
-	if not s.is_asis_import:
-		s.pickle_hash = s.module.package_interpolation.pickle_hash
-	else:
-		s.pickle_hash = ''
+	if s.is_asis_import:
+		s.module.package_interpolation.set_asis_import()
 
+	# importing
 	for t in s.atomic_target:
 		resolve(s, t)	
 
+	# packagepo pop
 	if s.packagebol:
 		s.module.package_interpolation.pop()
+
+	if s.is_asis_import:
+		s.module.package_interpolation.unset_asis_import()
 
 def resolve(s, t):
 	url = t.url(
 		skip_if_not_found = 1,
 		packagebol = s.packagebol,
-		pickle_hash = s.pickle_hash,
+		pickle_hash = s.module.package_interpolation.pickle_hash,
 	)
 		
 	if url.found:
