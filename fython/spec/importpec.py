@@ -40,9 +40,15 @@ def resolve(s, t):
 		fortR(s, t, url)
 
 def fyR(s, t, url):
+	# updating packagepo
 	if url.packagebol:
-		s.module.package_interpolation.add(url.packagebol.interpolation)
+		s.module.package_interpolation.add(url.packagebol)
 
+	# getting current packagepo hash
+	if not s.is_asis_import:
+		url.pickle_hash = s.module.package_interpolation.pickle_hash
+
+	# resolve
 	if t.is_ibol:
 		fy_aliased_namespace_import(s, t, url)
 
@@ -55,6 +61,7 @@ def fyR(s, t, url):
 	else:
 		fy_slice_import(s, t, url)
 
+	# pop packagepo
 	if url.packagebol:
 		s.module.package_interpolation.pop()
 

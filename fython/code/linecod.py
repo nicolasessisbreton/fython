@@ -122,6 +122,13 @@ class LineCod(Unit):
 	def is_class(s):
 		return s.lexem[1].value.value == l.classk
 
+	@property
+	def is_asis_import(s):
+		for m in s.modifier:
+			if m.is_namex:
+				if m.value == 'asis':
+					return 1
+
 	def get_spec_parent(s):
 		for m in s.modifier:
 			if m.is_funbol:

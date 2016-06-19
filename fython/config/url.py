@@ -30,6 +30,8 @@ class Url:
 		s.packagebol = packagebol	
 		s.release = release
 
+		s.pickle_hash = ''
+
 		if isinstance(ext, list):
 			s.exts = ext
 		else:
@@ -122,16 +124,9 @@ class Url:
 					s.fycache_dir += '/debug'
 					mkdir(s.fycache_dir)
 
-
-				if s.packagebol:
-					s.fycache_dir += '/' + s.packagebol.hash
-					mkdir(s.fycache_dir)
-
-
 				# object
-				s.object_name = s.name + '.o'
+				s.object_name = s.name + s.pickle_hash + '.o'
 				s.object_path = '{:s}/{:s}'.format(s.fycache_dir, s.object_name)
-
 
 				# fortran
 				if s.ext in exts.fort:
@@ -147,8 +142,9 @@ class Url:
 				s.so_path = '{:s}/{:s}'.format(s.fycache_dir, s.so_name)
 				
 				# pickle
-				s.pickle = '{:s}/{:s}.pickle.'.format(
+				s.pickle = '{:s}/{:s}{:s}.pickle'.format(
 					s.fycache_dir, 
+					s.pickle_hash,
 					s.name,
 				)
 

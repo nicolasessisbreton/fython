@@ -35,9 +35,9 @@ def lexiruc(linecod):
 	m.line_offset = s.lineno
 	m.value = s.module.value
 
-	m.package_interpolation.add(interpolation)
+	m.package_interpolation.add_lexiruc_interpolation(interpolation)
 	yacc(m)
-	m.package_interpolation.pop()
+	m.package_interpolation.pop_lexiruc_interpolation()
 
 	interpolated = m.code[0]
 	change_name(s, interpolated, new_name)

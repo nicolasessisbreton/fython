@@ -53,8 +53,8 @@ class Stack(Data):
 		url.fy_parent = fy_parent
 
 		if url.pickle in s.module:
+			# nothing to do; already loaded
 			return s.module[url.pickle]
-			# nothing to do ; already loaded
 
 		elif s.is_up_to_date(url):
 			m = restore_module(url, s)
@@ -64,8 +64,8 @@ class Stack(Data):
 			m = get_module(url, s)
 			m.is_up_to_date = 0
 
-		s.module[m.url.pickle] = m
-
+		s.module[url.pickle] = m
+		
 		# run
 		if m.is_up_to_date:
 			for url in m.dependency:
@@ -80,6 +80,7 @@ class Stack(Data):
 			m.compile_fortran()
 
 			m.save()
+
 
 		s.add_includedir(m.url.fycache_dir)
 		s.add_object(m.url.object_path)	

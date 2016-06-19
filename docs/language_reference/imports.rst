@@ -96,5 +96,5 @@ In a pycessor time import, Fython search for
 For print and read statement that uses an url,
 the assumed extension is ``.out``.
 
-For Fortran onlye star and slice imports are allowed.
+For Fortran, only star and slice imports are allowed.
 For So only star imports are allowed.

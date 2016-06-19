@@ -32,6 +32,7 @@ pickable_field = [
 
 	'receiver',
 	'main_buffer',
+
 ]
 
 guid_tag_start = '<a8o4j<' # salted to avoid collision
@@ -354,7 +355,6 @@ class FyModule:
 		lex(s)
 		yacc(s)
 
-			
 	# wrapper
 	def get_wrapper(s, run_main):
 		w = PyWrapper(s, run_main)	

@@ -29,3 +29,12 @@ Package interpolation can also be multilines
     target_class = KMean
 
   ||
+
+To disable package interpolation during a package import,
+use the ``asis`` modifier. 
+
+.. code-block:: fython
+
+  import asis random
+
+This is usefull to avoid further interpolation during an ongoing package interpolation.
