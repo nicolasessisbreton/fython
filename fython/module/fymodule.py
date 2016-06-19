@@ -440,7 +440,7 @@ class FyModule:
 				print(out)
 
 		elif fyfc.is_warning(out):
-			print('\n`warning: {:s}'.format(s.url.dotted))
+			print('|```warning: {:s}'.format(s.url.dotted))
 			print('| ' + '| '.join(out.splitlines(1)))
 			print()
 
