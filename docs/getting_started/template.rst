@@ -39,6 +39,9 @@ The content of ``quicksort`` is
 
   .. literalinclude:: ../../example/stat/stat/template/quicksort.fy
 
+To prevent any package interpolation to happen during the import of ``type_provider``,
+the import has the ``asis`` modifier.
+
 We test with
 
   **package_test.py**

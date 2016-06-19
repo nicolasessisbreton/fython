@@ -8,17 +8,27 @@ def importpec(linecod):
 		
 	if s.next_linecod_is_packagebol:
 		s.packagebol = s.next_linecod
+		s.module.package_interpolation.add(s.packagebol)
 
 	else:
 		s.packagebol = 0
 
+	if not s.is_asis_import:
+		s.pickle_hash = s.module.package_interpolation.pickle_hash
+	else:
+		s.pickle_hash = ''
+
 	for t in s.atomic_target:
 		resolve(s, t)	
+
+	if s.packagebol:
+		s.module.package_interpolation.pop()
 
 def resolve(s, t):
 	url = t.url(
 		skip_if_not_found = 1,
 		packagebol = s.packagebol,
+		pickle_hash = s.pickle_hash,
 	)
 		
 	if url.found:
@@ -40,15 +50,6 @@ def resolve(s, t):
 		fortR(s, t, url)
 
 def fyR(s, t, url):
-	# updating packagepo
-	if url.packagebol:
-		s.module.package_interpolation.add(url.packagebol)
-
-	# getting current packagepo hash
-	if not s.is_asis_import:
-		url.pickle_hash = s.module.package_interpolation.pickle_hash
-
-	# resolve
 	if t.is_ibol:
 		fy_aliased_namespace_import(s, t, url)
 
@@ -60,10 +61,6 @@ def fyR(s, t, url):
 
 	else:
 		fy_slice_import(s, t, url)
-
-	# pop packagepo
-	if url.packagebol:
-		s.module.package_interpolation.pop()
 
 def fy_aliased_namespace_import(s, t, url):
 	alias = t.rest[0].value

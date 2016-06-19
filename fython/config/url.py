@@ -21,6 +21,7 @@ class Url:
 		skip_if_not_found = 0,
 		packagebol = 0,
 		release = 0,
+		pickle_hash = '',
 	):
 		s.url = url
 		s.cwd = cwd
@@ -29,8 +30,7 @@ class Url:
 		s.found = 1
 		s.packagebol = packagebol	
 		s.release = release
-
-		s.pickle_hash = ''
+		s.pickle_hash = pickle_hash
 
 		if isinstance(ext, list):
 			s.exts = ext
@@ -133,19 +133,19 @@ class Url:
 					s.fortran_name = s.name_ext 
 
 				else:
-					s.fortran_name = s.name + '.f90'
+					s.fortran_name = s.name + s.pickle_hash + '.f90'
 					
 				s.fortran_path = '{:s}/{:s}'.format(s.fycache_dir, s.fortran_name)
 
 				# so
-				s.so_name = s.name + '.so'
+				s.so_name = s.name + s.pickle_hash + '.so'
 				s.so_path = '{:s}/{:s}'.format(s.fycache_dir, s.so_name)
 				
 				# pickle
 				s.pickle = '{:s}/{:s}{:s}.pickle'.format(
 					s.fycache_dir, 
-					s.pickle_hash,
 					s.name,
+					s.pickle_hash,
 				)
 
 				return 1

@@ -308,6 +308,7 @@ class Unit:
 		skip_if_not_found = 0,
 		packagebol = 0,
 		release = None,
+		pickle_hash = '',
 	):
 		if url is None:
 			url = s.url_value
@@ -325,7 +326,8 @@ class Unit:
 			path_only = path_only,
 			skip_if_not_found = skip_if_not_found,
 			packagebol = packagebol,
-			release = release
+			release = release,
+			pickle_hash = pickle_hash,
 		)
 
 		return r
