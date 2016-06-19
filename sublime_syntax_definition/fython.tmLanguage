@@ -42,7 +42,7 @@
 			<key>match</key>
 			<string>(?i)\#.*</string>
 			<key>name</key>
-			<string>comment.line.fython</string>
+			<string>comment.line.number-sign.fython</string>
 		</dict>
 		<dict>
 			<key>captures</key>

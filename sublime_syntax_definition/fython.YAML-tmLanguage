@@ -22,7 +22,7 @@ patterns:
   begin: (?i)\"\"\"
   end: (?i)\"\"\"
 
-- name: comment.line.fython
+- name: comment.line.number-sign.fython
   match: (?i)\#.*
 
 - match: (?i)\b(def)\s.*?\s?(\w+)(\s*\:)

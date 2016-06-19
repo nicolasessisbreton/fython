@@ -424,6 +424,7 @@ class FyModule:
 
 		if error:
 			out = s.stack.reveal_guid(out)
+			out = s.remove_packagebol_hash(out)
 
 			if fyfc.is_error(out):
 				x = open(s.url.fortran_path, 'r').read()
@@ -440,6 +441,9 @@ class FyModule:
 				print(out)
 
 		elif fyfc.is_warning(out):
+			out = s.stack.reveal_guid(out)
+			out = s.remove_packagebol_hash(out)
+
 			print('|```warning: {:s}'.format(s.url.dotted))
 			print('| ' + '| '.join(out.splitlines(1)))
 			print()
@@ -583,4 +587,12 @@ class FyModule:
 			return s.receiver
 		else:
 			return s.main_buffer
-	
+
+	def remove_packagebol_hash(s, msg):
+		if s.package_interpolation.pickle_hash:
+			msg = re.sub(
+				'{:s}\.f90'.format(s.package_interpolation.pickle_hash),
+				'.f90',
+				msg,
+			)
+		return msg
