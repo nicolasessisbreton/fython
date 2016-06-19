@@ -20,7 +20,7 @@ def resolve(s, t):
 		skip_if_not_found = 1,
 		packagebol = s.packagebol,
 	)
-	
+		
 	if url.found:
 		assert_valid_import(t, url.ext)
 
@@ -40,6 +40,9 @@ def resolve(s, t):
 		fortR(s, t, url)
 
 def fyR(s, t, url):
+	if url.packagebol:
+		s.module.package_interpolation.add(url.packagebol.interpolation)
+
 	if t.is_ibol:
 		fy_aliased_namespace_import(s, t, url)
 
@@ -51,6 +54,9 @@ def fyR(s, t, url):
 
 	else:
 		fy_slice_import(s, t, url)
+
+	if url.packagebol:
+		s.module.package_interpolation.pop()
 
 def fy_aliased_namespace_import(s, t, url):
 	alias = t.rest[0].value

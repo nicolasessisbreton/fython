@@ -351,14 +351,9 @@ class FyModule:
 		import_module(fyinterpolant_url)
 		s.interpolant = sys.modules.pop(fyinterpolant_url)
 
-		if url.packagebol:
-			s.package_interpolation.add(url.packagebol.interpolation)
-
 		lex(s)
 		yacc(s)
 
-		if url.packagebol:
-			s.package_interpolation.pop()
 			
 	# wrapper
 	def get_wrapper(s, run_main):

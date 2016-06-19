@@ -68,7 +68,7 @@ This is usefull for conditional inclusion of logging code for example.
 .. code-block:: fython
 
   inline debug f
-  inlinde release f
+  inline release f
 
 When no modifier is specified, the code is inlined in all compilation mode.
 

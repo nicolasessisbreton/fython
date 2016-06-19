@@ -42,7 +42,7 @@ def routpec(linecod):
 def get_parent(s):
 	s.spec_parent = s.get_spec_parent()
 	if s.spec_parent:
-		return s.frame_ast[s.spec_parent]
+		return s.get_ast(s.spec_parent)
 
 	elif s.klass:
 		p = s.klass.parent
