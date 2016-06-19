@@ -118,3 +118,8 @@ and that the function should not be compiled.
     int in n
 
     x += 1 # definition of x is provided by the spec of f
+
+The ``noprod`` modifier is not inherited
+during a spec interpolation.
+So, only ``f`` is not compiled.
+To not compile ``g``, explicitly use the modifier ``noprod``.
