@@ -1,7 +1,7 @@
 # base
 class FyException(Exception):
 	def __init__(s, message):
-		s.message = '\n'
+		s.message = '\n;;;;;\n'
 		s.message += s.__class__.__name__.replace('_', ' ')
 		s.message += '\n'
 		s.message += str(message)

@@ -15,6 +15,7 @@ set_compiler(
 	release = '',
 	link = '',
 	error_regex = 'error:',
+	warning_regex = 'warnings:'
 )
 
 writer(s)

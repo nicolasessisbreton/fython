@@ -45,6 +45,7 @@ class fyfc_ifort(Data):
 	link = ''
 
 	error_regex = '(error #|ld:)'
+	warning_regex = '(warning #|remark #)'
 
 
 class fyfc_gfortran(Data):
@@ -69,6 +70,7 @@ class fyfc_gfortran(Data):
 	link = ''
 
 	error_regex = '(Error:|ld:)'
+	warning_regex = 'warning'
 
 def use_ifort():
 	global fyfc
@@ -87,6 +89,7 @@ def set_compiler(
 	release,
 	link,
 	error_regex,
+	warning_regex,
 ):	
 	global fyfc
 	fyfc.update( Data(
@@ -98,6 +101,7 @@ def set_compiler(
 		release = release.replace('\n', ''),
 		link = link.replace('\n', ''),
 		error_regex = error_regex,
+		warning_regex = warning_regex,
 	))
 
 class FyFC(Data):
@@ -110,6 +114,9 @@ class FyFC(Data):
 
 	def is_error(s, msg):
 		return re.search(s.error_regex, msg)
+
+	def is_warning(s, msg):
+		return re.search(s.warning_regex, msg)
 
 	@property
 	def assert_compiler_setted(s):
@@ -163,6 +170,8 @@ def use_mkl():
 			-lm
 		""",
 		error_regex = '(error #|ld:)',
+		
+		warning_regex = '(warning #|remark #)',
 	)
 
 

@@ -439,6 +439,11 @@ class FyModule:
 			else:
 				print(out)
 
+		elif fyfc.is_warning(out):
+			print('\nwarning: {:s}'.format(s.url.dotted))
+			print(out)
+			print()
+
 	def resolve(s):
 		for linecod in s.code:
 			resolve(linecod)
