@@ -113,6 +113,7 @@ lexem
 
 	uopx # + or - when precede by: semix commax lparx lketx lpcax lkcax funx slicex
 		 # : when not eopx and prececde by: semix commax lparx lketx lpcax lkcax funx slicex	
+		 # :: ; array slice like x[::2]
 
 	ropx # : when not eopx and followed by: commax rparx rketx
 

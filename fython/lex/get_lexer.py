@@ -156,6 +156,11 @@ def t_opx_duo(t):
 
 	return t
 
+def t_uopx(t):
+	r'::'
+	t.value = UOpX(t)
+	return t
+	
 def t_opx(t):
 	r'(\+|\-|\*|/|<|>|:|=)' 
 	if not t.lexer.group:
