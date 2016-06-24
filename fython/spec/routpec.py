@@ -45,16 +45,19 @@ def routpec(linecod):
 def get_parent(s):
 	s.spec_parent = s.get_spec_parent()
 	if s.spec_parent:
-		return s.get_ast(s.spec_parent)
+		r = []
+		for t in s.spec_parent:
+			r.append(s.get_ast(t))
+		return r
 
 	elif s.klass:
 		p = s.klass.parent
 		if p:
 			if s.value in p.ast:
-				return p.ast[s.value]
+				return [p.ast[s.value]]
 
 	elif s.value in s.frame_ast:
-		return s.frame_ast[s.value]
+		return [s.frame_ast[s.value]]
 
 def make_production(s):
 	b = s.b
@@ -93,11 +96,12 @@ def make_production(s):
 def get_attribute(s):
 	r = []
 	if s.parent:
-		for m in s.parent.modifier_only_for_rout:
-			if m.value == 'noprod':
-				continue
-			c = m.clone(s.module)
-			r.append(c)
+		for p in s.parent:
+			for m in p.modifier_only_for_rout:
+				if m.value == 'noprod':
+					continue
+				c = m.clone(s.module)
+				r.append(c)
 
 	r.extend(s.modifier_only_for_rout)
 
@@ -107,8 +111,9 @@ def get_linecod(s):
 	r = []
 
 	if s.parent:
-		for l in s.parent.linecod:
-			r.append(l.clone(s.module))
+		for p in s.parent:
+			for l in p.linecod:
+				r.append(l.clone(s.module))
 
 	r.extend(s.childcod_target)
 

@@ -38,7 +38,7 @@ You can separate the implementation and the specification of you function with s
   def f:
     r = x + 3
 
-The spec for ``f`` can be in the same module or originated from an import.
+The spec for ``f`` can be in the same module or originate from an import.
 You can also explicitlye specify the spec to use with the ``spec``.
 
 .. code-block:: fython
@@ -50,6 +50,9 @@ You can also explicitlye specify the spec to use with the ``spec``.
   def spec(f) g:
     r = x + 10
 
+    def spec(f, g) h:
+      pass # multiple spec parent
+      
 You can use the ``inline`` instruction to include verbatim the definition
 of one function into another
 

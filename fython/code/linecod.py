@@ -133,7 +133,7 @@ class LineCod(Unit):
 		for m in s.modifier:
 			if m.is_funbol:
 				if m.value == 'spec':
-					return m.args[0].value
+					return [t.value for t in m.args]
 
 	@property
 	def has_spec_attribute(s):
