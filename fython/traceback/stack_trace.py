@@ -3,7 +3,7 @@ from tabulate import tabulate
 
 def stack_trace(last_error, ndx, dotted, lineno):
 	last_error = last_error.decode('utf-8').strip()
-	n = ndx
+	n = min(ndx, fytbk.max_depth-1)
 	name = []
 	line = []
 	for i in range(n):
@@ -15,7 +15,11 @@ def stack_trace(last_error, ndx, dotted, lineno):
 	module = []
 	function = []
 	for n in name:
-		m, f = n.split(':')
+		if ':' in n:
+			m, f = n.split(':')
+		else:
+			m = n
+			f = ''
 		module.append(m)
 		function.append(f)
 
