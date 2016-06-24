@@ -2,6 +2,7 @@ from ctypes import cdll
 from ..config import *
 from fython.fytypes import *
 from fython.traceback import stack_trace
+from tabulate import tabulate
 
 typemapping = dict(
 	real = Real,
@@ -161,7 +162,8 @@ class PyWrapper(Data):
 
 		elif kwargs:
 			if len(kwargs) != rout.nb_argument:
-				s.throw(err.nb_of_arguments_mismatch, nb_received=len(kwargs), nb_expected=rout.nb_argument, function_name=rout.alias)
+				mismatch = s.get_kwargs_mismath(rout, kwargs)
+				s.throw(err.nb_of_arguments_mismatch, nb_received=len(kwargs), nb_expected=rout.nb_argument, function_name=rout.alias, mismatch=mismatch)
 
 			args = s.order_args(rout, kwargs)
 
@@ -209,6 +211,30 @@ class PyWrapper(Data):
 		for x in rout.argument:
 			args.append(kwargs[x])
 		return args
+
+	def get_kwargs_mismath(s, rout, kwargs):
+		e = ['expected', '-----']
+		r = ['received', '-----']
+
+		for x in rout.argument:
+			if x not in kwargs:
+				e.append(x)
+				r.append('*')
+
+		for x in kwargs:
+			if x not in rout.argument:
+				e.append('*')
+				r.append(x)
+
+		e.append('')
+		r.append('')
+		
+		m = tabulate(
+			zip(e, r),
+			tablefmt = 'plain',
+		)
+
+		return m
 
 	def throw(s, error_type, **kwargs):
 		s.module.throw(error_type, **kwargs)
