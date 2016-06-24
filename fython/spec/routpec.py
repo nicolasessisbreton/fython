@@ -87,8 +87,6 @@ def make_production(s):
 
 	b *= s.body
 
-	b != s.tbk_eframe
-
 	b.dedent
 
 	b += s.end_tag
@@ -210,6 +208,8 @@ def treat_linecod(s):
 	s.argument_prod.rstrip(',')
 	s.argument_prod != ')'
 
+	s.body != s.tbk_eframe
+	
 	if s.result:
 		s.begin_tag = 'function '
 		s.end_tag = 'end function'

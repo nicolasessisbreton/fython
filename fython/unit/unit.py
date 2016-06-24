@@ -50,18 +50,20 @@ class Unit:
 	@property
 	def tbk_frame(s):
 		if s.module.debug:
-			return tbk.init_frame(s.module.value, s.name.value)
+			if s.module.tbk_frame_rout[s.level]:
+				n = s.module.tbk_frame_rout[s.level]
+				s.module.tbk_frame_rout[s.level] = 0
+				return tbk.init_frame(s.module.value, n)
 
-		else:
-			return ''
+		return ''
 
 	@property
 	def tbk_eframe(s):
 		if s.debug:
-			return tbk.del_frame()
+			if s.module.tbk_frame_rout[s.level] == 0:
+				return tbk.del_frame()
 
-		else:
-			return ''
+		return ''
 
 	def tbk_mark_enable(s):
 		s.module.tbk_mark_on = 1
