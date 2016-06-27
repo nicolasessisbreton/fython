@@ -126,3 +126,19 @@ The ``noprod`` modifier is not inherited
 during a spec interpolation.
 So, only ``f`` is not compiled.
 To not compile ``g``, explicitly use the modifier ``noprod``.
+
+to help distinguish between pure and non-pure function used the modifiers
+``pure`` and ``sidef``
+
+.. code-block:: fython
+
+  def pure f:
+    pass
+
+  def sidef g:
+    pass
+
+The modifier ``sidef`` has no effect during compilation.
+The modifier clearly states the intent of the coder:
+that the function ``g`` has side-effects,
+and cannot be marked as pure.
