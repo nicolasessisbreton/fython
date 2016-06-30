@@ -34,11 +34,11 @@ class Package_Interpolation(Data):
 	
 	def get_hash(s):
 		if s.hash_stack:
-			return '.' + str(hash(''.join(s.hash_stack)))
-			
+			return '.' + md5( ''.join(s.hash_stack) )
+
 		else:
 			return ''
-	
+
 	def __contains__(s, name):
 		return name in s.frame[-1]
 

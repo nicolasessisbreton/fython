@@ -44,9 +44,7 @@ class PackageBol(Unit):
 		for x in s.lexem:
 			r += x.value.value
 
-		h = hash(r)
-
-		return str(h)
+		return md5(r)
 
 	@property
 	def interpolation(s):

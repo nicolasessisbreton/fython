@@ -8,6 +8,7 @@ from . import extension as exts
 from .gen_guid import gen_guid
 from .get_frame_dir import get_frame_dir
 from . import language as l
+from .md5 import md5
 from .mkdir import mkdir 
 from .path import *
 from .shell import shell
