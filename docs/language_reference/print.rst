@@ -75,3 +75,14 @@ The format mini-language is that of Fortran plus two additions
   """
 
 The additions are the ``v`` and ``vc`` formats that facilitates the printing of vectors.
+
+
+If a print statement is used only in debug mode, use the ``xip`` instruction
+
+.. code-block:: fython
+
+  xip 'printed only in debug mode'
+  print 'printed in both debug and release mode'
+
+The ``xip`` takes the same modifiers than the ``print`` instruction.
+The ``xip`` instruction is usefull for debugging.

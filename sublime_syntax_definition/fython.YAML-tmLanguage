@@ -37,7 +37,7 @@ patterns:
   match: (?i)(true|false)
 
 - name: keyword.other.fython
-  match: (?i)\b(inline|interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b
+  match: (?i)\b(inline|interface|import|print|xip|read|result|arg|res|bind|iso|in|out|inout|sub)\b
 
 - name: keyword.control.fython
   match: (?i)\b(if|then|else|elif|while|where|for|continue|break|pass|return)\b

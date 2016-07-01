@@ -34,7 +34,7 @@ def resolve(s, t):
 		packagebol = s.packagebol,
 		pickle_hash = s.module.package_interpolation.pickle_hash,
 	)
-		
+
 	if url.found:
 		assert_valid_import(t, url.ext)
 

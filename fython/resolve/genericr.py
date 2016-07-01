@@ -36,4 +36,5 @@ instruction = {
 	l.sync : l.syncruc,
 	l.where : l.whereruc,
 	l.whilek : l.whileruc,
+	l.xip : l.xipruc,
 }

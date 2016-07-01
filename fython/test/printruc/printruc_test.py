@@ -40,6 +40,9 @@ s = r"""
 	{vc:vector_content}
 	{a:string}
 	'''
+
+	# xip
+	xip 'printed only in debug mode'
 """
 
 from fython.test import *

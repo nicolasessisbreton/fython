@@ -200,6 +200,7 @@ stop = 'stop'
 sync = 'sync'
 where = 'where'
 whilek = 'while'
+xip = 'xip'
 
 # spec instruction
 allocruc = 'allocruc'
@@ -230,4 +231,4 @@ stopruc = 'stopruc'
 syncruc = 'syncruc'
 whereruc = 'whereruc'
 whileruc = 'whileruc'
-
+xipruc = 'xipruc'

@@ -75,7 +75,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(inline|interface|import|print|read|result|arg|res|bind|iso|in|out|inout|sub)\b</string>
+			<string>(?i)\b(inline|interface|import|print|xip|read|result|arg|res|bind|iso|in|out|inout|sub)\b</string>
 			<key>name</key>
 			<string>keyword.other.fython</string>
 		</dict>
