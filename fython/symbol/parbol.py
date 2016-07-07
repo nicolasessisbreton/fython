@@ -7,9 +7,10 @@ class ParBol(Unit):
 		s.module = lparx.module
 		s.lineno = lparx.lineno
 		
+		s.value = lparx.value
+		
 		s.raw = []
 		s.lexem = []
-
 		s.modifier = [lparx]
 
 		s ^ lparx
