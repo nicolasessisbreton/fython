@@ -50,7 +50,8 @@ class Stack(Data):
 				ext = exts.importable,
 				release = s.release,
 			)
-		url.fy_parent = fy_parent
+		if url.fy_parent is None:
+			url.fy_parent = fy_parent
 
 		if url.pickle in s.module:
 			# nothing to do; already loaded

@@ -42,6 +42,8 @@ class Url:
 		else:
 			s.fully_qualified()
 
+		s.fy_parent = None
+		
 	def relative(s):
 		dot, name = relpath.findall(s.url)[0]
 
