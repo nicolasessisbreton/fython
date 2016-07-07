@@ -156,7 +156,7 @@ def treat_attribute(s):
 
 			elif m.value == 'noprod':
 				s.is_noprod_element = 1
-				
+			
 			elif m.value in ['pget', 'pset', 'sidef']:
 				continue
 
