@@ -98,3 +98,21 @@ the assumed extension is ``.out``.
 
 For Fortran, only star and slice imports are allowed.
 For So only star imports are allowed.
+
+Usefull modifiers of the import statements are
+
+.. code-block:: fython
+
+  import asis payoff_defs_provider(*)
+
+  import noforce mkl.include.mkl_vsl(*)
+
+The ``asis`` modifier prevents any package interpolation to happen during the import.
+This is usefull when designing a packaged meant to be a template.
+See the Template section.
+
+The ``noforce`` modifier prevents a forcefull recompilation.
+If the module alreasy exists, it is not recompile,
+even if it was loaded with ``load(url, force=1``.
+This is usefull to avoid recompilation of heavy module,
+that anyway never changes.

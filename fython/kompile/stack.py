@@ -95,8 +95,16 @@ class Stack(Data):
 		return m
 
 	def is_up_to_date(s, url):
-		if s.force and url.dotted != fytbk.url:
-			return 0
+		if url.dotted == fytbk.url:
+			return url.is_up_to_date
+
+		elif s.force:
+			if url.is_noforce:
+				return url.is_up_to_date
+
+			else:
+				return 0
+
 		else:
 			return url.is_up_to_date
 

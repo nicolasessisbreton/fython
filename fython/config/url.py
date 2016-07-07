@@ -32,6 +32,9 @@ class Url:
 		s.release = release
 		s.pickle_hash = pickle_hash
 
+		s.fy_parent = None
+		s.is_noforce = 0		
+		
 		if isinstance(ext, list):
 			s.exts = ext
 		else:
@@ -42,8 +45,7 @@ class Url:
 		else:
 			s.fully_qualified()
 
-		s.fy_parent = None
-		
+
 	def relative(s):
 		dot, name = relpath.findall(s.url)[0]
 

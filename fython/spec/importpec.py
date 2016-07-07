@@ -17,6 +17,8 @@ def importpec(linecod):
 	if s.is_asis_import:
 		s.module.package_interpolation.set_asis_import()
 
+	s.is_noforce = s.is_noforce_import
+
 	# importing
 	for t in s.atomic_target:
 		resolve(s, t)	
@@ -35,6 +37,8 @@ def resolve(s, t):
 		pickle_hash = s.module.package_interpolation.pickle_hash,
 	)
 
+	url.is_no_force = s.is_noforce
+	
 	if url.found:
 		assert_valid_import(t, url.ext)
 

@@ -129,6 +129,13 @@ class LineCod(Unit):
 				if m.value == 'asis':
 					return 1
 
+	@property
+	def is_noforce_import(s):
+		for m in s.modifier:
+			if m.is_namex:
+				if m.value == 'noforce':
+					return 1
+
 	def get_spec_parent(s):
 		for m in s.modifier:
 			if m.is_funbol:
