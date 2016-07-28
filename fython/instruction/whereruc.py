@@ -18,11 +18,10 @@ def whereruc(linecod):
 	for x in s.childcod_target:
 		resolve(x)
 
-	s.tbk_mark_enable()
-
 	s.dedent		
 	
 	if not s.next_linecod_is_elwhere_or_else:
 		b != 'end where'
 		b != s.newline
+		s.tbk_mark_enable()
 		b != s.tbk_emark

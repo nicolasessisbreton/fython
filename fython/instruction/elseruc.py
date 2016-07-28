@@ -28,4 +28,7 @@ def elseruc(linecod):
 	b != end
 	b != s.newline
 
+	if s.previous_linecod_is_where_or_elwhere:
+		s.tbk_mark_enable()
+		
 	b != s.tbk_emark
