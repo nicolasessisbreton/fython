@@ -297,11 +297,23 @@ class FyModule:
 
 	# pickling
 	def save(s):
+		# increasing recursion depth to avoid pickle: maximum recursion depth error, see:
+		#	http://stackoverflow.com/q/2134706/1030312
+
+		current_limit = sys.getrecursionlimit()
+		
+		if current_limit < fypickling_recursion_limit:
+			sys.setrecursionlimit(fypickling_recursion_limit)	
+
 		dump(
 			s, 
 			open(s.url.pickle, 'wb'), 
 			protocol = HIGHEST_PROTOCOL, 
 		)
+
+
+		if current_limit < fypickling_recursion_limit:
+			sys.setrecursionlimit(current_limit)
 
 	def __getstate__(s):
 		r = {}

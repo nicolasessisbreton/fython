@@ -11,6 +11,7 @@ from . import language as l
 from .md5 import md5
 from .mkdir import mkdir 
 from .path import *
+from .pickling import *
 from .shell import shell
 from . import traceback as fytbk
 from .trim import trim
