@@ -72,9 +72,11 @@ The format mini-language is that of Fortran plus two additions
     {v:y} : vector format: [1, 2, 3, ]
 
     {vc:y} : vector content format: 1, 2, 3,
+
+    {va:y} : vector format: array([1, 2, 3, ]) ; usefull for python post-processing
   """
 
-The additions are the ``v`` and ``vc`` formats that facilitates the printing of vectors.
+The additions are the ``v``, ``vc`` and ``va`` formats that facilitates the printing of vectors.
 
 
 If a print statement is used only in debug mode, use the ``xip`` instruction
