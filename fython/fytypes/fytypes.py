@@ -100,6 +100,12 @@ class Real(FyType):
 	dtprefix = 'float'
 	size_multiplier = 8
 
+class Real8(FyType):
+	name = 'real8'
+	basetype = c_double
+	dtprefix = 'float'
+	size_multiplier = 16
+
 class Int(FyType):
 	name = 'int'
 	basetype = c_int

@@ -1,5 +1,6 @@
 from .fytypes import (
 	Real, 
+	Real8,
 	Int, 
 	Char,
 
