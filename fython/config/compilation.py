@@ -39,6 +39,7 @@ class fyfc_ifort(Data):
 
 	release = """
 	-fast
+	-parallel 
 	""".replace('\n', ' ')
 
 
@@ -159,6 +160,7 @@ def use_mkl():
 		""",
 		release = """
 			-fast
+			-parallel 
 			-I/opt/intel/mkl/include
 		""",
 		link = """
@@ -200,6 +202,7 @@ def use_mkl_blas_lapack():
 		""",
 		release = """
 			-fast
+			-parallel 
 			-qopenmp
 			-I/opt/intel/mkl/include/intel64/lp64
 			-I/opt/intel/mkl/include
