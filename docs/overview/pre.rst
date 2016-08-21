@@ -17,7 +17,7 @@ with Fython you won't feel it
     for i in [1, 1e9]:
       r += v[i] + offset
 
-    print('The sum is {:sum(v)}')
+    print 'The sum is {:sum(v)}'
 
 The loop above is automatically parallelized
 by the Fortran compiler that powers Fython.
