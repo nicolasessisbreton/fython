@@ -22,5 +22,7 @@ and the pointer operator.
   
   x and y or b not c
 
+  x >> 1 + y << 4
+
   x => y # pointer
 
