@@ -65,6 +65,8 @@ def make_production(s):
 	b != s.contains
 
 	b != s.pre
+	print('~~', s.pre.r)
+
 	b != s.begin_tag
 
 	if s.klass:
@@ -95,7 +97,7 @@ def get_attribute(s):
 	r = []
 	if s.parent:
 		for p in s.parent:
-			for m in p.modifier_only_for_rout:
+			for m in p.attribute:
 				if m.value == 'noprod':
 					continue
 				c = m.clone(s.module)
