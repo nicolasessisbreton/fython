@@ -65,7 +65,6 @@ def make_production(s):
 	b != s.contains
 
 	b != s.pre
-	print('~~', s.pre.r)
 
 	b != s.begin_tag
 
