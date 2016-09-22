@@ -236,6 +236,12 @@ class PyWrapper(Data):
 
 		return m
 
+	def get_kwargs(s, routname):
+		if routname not in s.entity:
+			s.throw(err.name_not_found_in_fython_module, name=routname)
+
+		return s.entity[routname].argument
+
 	def throw(s, error_type, **kwargs):
 		s.module.throw(error_type, **kwargs)
 
