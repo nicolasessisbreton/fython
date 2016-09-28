@@ -60,7 +60,7 @@ with the mode modifier
 
 The default mode is ``a``.
 
-The format mini-language is that of Fortran plus two additions
+The format mini-language is that of Fortran plus several additions
 
 .. code-block:: fython
 
@@ -77,6 +77,52 @@ The format mini-language is that of Fortran plus two additions
   """
 
 The additions are the ``v``, ``vc`` and ``va`` formats that facilitates the printing of vectors.
+
+Format that helps printing to the JSON format are also avalaible.
+The JSON formats avoid typing the name of a variable twice,
+and helps to deal with comma.
+
+.. code-block:: fython
+
+  print """
+    {jn:x} : json no comma before: "x": x
+
+    {j:x} : json with comma before: ,"x":x
+
+    {jv:x} : json vector: "x":[1, 2, 3]
+
+    {jvn:x} : json vector no comma before: ,"x":[1,2,3]
+
+    {j_tag:x} : json with specified tag: ,"tag":x
+
+    {jv_tag:x} : json vector with specified tag: ,"tag":[1,2,3]
+
+    {jn_tag:x} : json no comma before with specified tag: "tag":x
+
+    {jvn_tag:x} : json no comma before vector with specified tag: "tag":[1,2,3]
+
+  """
+
+In a Typical printing with JSON format, the first element is explicitly specified
+without leading comma,
+then the remaining elements are added, prepended by a comma.
+
+.. code-block:: fython
+
+  print """
+    [
+      { } # first element no comma
+
+      ,{ } # any addition prepended by a comma
+
+      ,{
+        {jn:x} # no comma
+        {j:y} # prepended by a comma
+
+      }
+
+    ]
+  """
 
 
 If a print statement is used only in debug mode, use the ``xip`` instruction
