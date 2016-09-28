@@ -22,7 +22,8 @@ class StrResolver:
 	def advance(s):
 		s.ndx += 1
 		if s.ndx == s.n:
-			s.dotbol.throw(err.invalid_url)
+			# no more qualifier, finished
+			return
 
 		s.alias = s.args[s.ndx].value
 		
