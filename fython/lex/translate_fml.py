@@ -15,13 +15,13 @@ def t_interpolationx(t):
 def t_multiline_string_tickx(t):
 	r"""'''.*?'''"""
 	t.type = 'string'
-	t.value = fml(t.lexer.module, t.value)
+	t.value = fml(t.lexer.module, t.value, 1)
 	return t 
 
 def t_multiline_string_quotex(t):
 	r'''""".*?"""'''
 	t.type = 'string'
-	t.value = fml(t.lexer.module, t.value)
+	t.value = fml(t.lexer.module, t.value, 1)
 	return t 
 
 def t_string_tickx(t):
