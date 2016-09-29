@@ -2,10 +2,12 @@ s = r"""
 .a.fy
 	int:
 		x
+
+	real:
 		y(2)
 
 	x = 0
-	y = 1
+	y = .5
 
 	print 'jn {jn:x}'
 	print 'j {j:x}'
