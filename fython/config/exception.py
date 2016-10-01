@@ -49,6 +49,9 @@ class else_without_if_elif_where_or_elwhere(FyException):
 class error_in_interpolant(FyException):
 	pass
 
+class fortran_file_not_found(FyException):
+	pass
+	
 class guid_override_error(FyException):
 	pass
 

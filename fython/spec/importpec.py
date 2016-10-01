@@ -109,6 +109,9 @@ def fortR(s, t, url):
 		s.module.add_fort_dependency(url)
 		name = url.name
 
+	elif t.is_dotbol:
+		t.throw(err.fortran_file_not_found,url=t.url_value)
+
 	else:
 		name = t.value
 
@@ -146,7 +149,7 @@ def get_imported(t):
 			alias = a.modifier[2].value
 			
 		else:
-			funbol.throw(err.cannot_resolve_modifier)
+			funbol.throw(err.cannot_resolve_modifier, url=t.url_value)
 
 		imported.append([name, alias])
 
@@ -187,27 +190,27 @@ def assert_valid_fy_import(t):
 		# aliased namespace import
 
 	else:
-		# start or slice import
+		# star or slice import
 		funbol = get_funbol(t)
 		if not funbol.is_funbol:
-			funbol.throw(err.no_element_specified_in_slice_import)
+			funbol.throw(err.no_element_specified_in_slice_import, url=t.url_value)
 
 def assert_valid_fort_import(t):
 	if t.unit in [l.ibol, l.namex]:
-		t.throw(err.only_star_or_slice_import_allowed_for_fortran)
+		t.throw(err.only_star_or_slice_import_allowed_for_fortran, url=t.value)
 
 	if t.is_dotbol:
 		if not t.args[-1].is_funbol:
-			t.throw(err.only_star_or_slice_import_allowed_for_fortran)
+			t.throw(err.only_star_or_slice_import_allowed_for_fortran, url=t.url_value)
 
 	funbol = get_funbol(t)
 	if not funbol.args:
-		funbol.throw(err.no_element_specified_in_slice_import)
+		funbol.throw(err.no_element_specified_in_slice_import, url=t.value)
 
 def assert_valid_so_import(t):
 	if t.is_ibol or t.is_funbol:
-		t.throw(err.only_star_import_allowed_for_shared_library)
+		t.throw(err.only_star_import_allowed_for_shared_library, url=t.url_value)
 
 	if t.is_dotbol:
 		if not t.args[-1].is_funbol:
-			t.throw(err.only_star_or_slice_import_allowed_for_fortran)
+			t.throw(err.only_star_or_slice_import_allowed_for_fortran, url=t.url_value)
