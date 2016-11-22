@@ -102,7 +102,9 @@ lexem
 	namex # [\w\$]+
 
 	
-	iopx #~ += -= *= /= = => <<= &= ^= |= >>=
+	iopx #~ += -= *= /= = => <<= &= ^= |= >>= --= ++= 
+			# --= min operator
+			# ++= max operator
 
 	bopx # << & ^ | >> ; bitwise operator
 

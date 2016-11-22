@@ -18,6 +18,7 @@ and the pointer operator.
   x |= 1
   x >>= 1
 
+
   x < <= == != => > y # this is an invalid syntax 
   
   x and y or b not c
@@ -26,3 +27,9 @@ and the pointer operator.
 
   x => y # pointer
 
+The min and max operator are often convenient.
+
+.. code-block:: fython
+
+  x ++= y # x = max(x, y)
+  x --= y # x = min(x, y)
