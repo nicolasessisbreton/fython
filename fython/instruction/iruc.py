@@ -62,7 +62,7 @@ def iruc(linecod):
 		elif iop in operator_inplace:
 			b != '{target:s} = {iop:s}({target:s}, {rest:s})'.format(
 				target = target, 
-				iop = bitwise_inplace[iop], 
+				iop = operator_inplace[iop], 
 				rest = rest,
 			)
 

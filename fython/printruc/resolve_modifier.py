@@ -14,7 +14,10 @@ def resolve_modifier(p):
 			p.unit = m
 			
 		elif m.is_namex:
-			p.unit = m
+			if m.value == 'c':
+				p.advance = 'no'
+			else:
+				p.unit = m
 
 		elif m.is_funbol:
 			resolve_funbol(p, m)
