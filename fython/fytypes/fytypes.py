@@ -154,7 +154,16 @@ class RealS(Real):
 			shape = s.get_value_from_args(args),
 		)
 
-class CharS(Real):
+class Real8S(Real8):
+	def __init__(s, *args, size = 4):
+		Real8.__init__(
+			s = s,
+			size = size,
+			value = None,
+			shape = s.get_value_from_args(args),
+		)
+
+class CharS(Char):
 	def __init__(s, *args, size = 4):
 		Char.__init__(
 			s = s,
@@ -182,7 +191,16 @@ class RealV(Real):
 			shape = None,
 		)
 
-class CharV(Real):
+class Real8V(Real8):
+	def __init__(s, *args, size = 4):
+		Real8.__init__(
+			s = s,
+			size = size,
+			value = s.get_value_from_args(args),
+			shape = None,
+		)
+
+class CharV(Char):
 	def __init__(s, *args, size = 4):
 		Char.__init__(
 			s = s,

@@ -60,6 +60,15 @@ with the mode modifier
 
 The default mode is ``a``.
 
+To continue printing on the same line, use the ``c`` modifier
+
+.. code-block:: fython
+
+  print c 'start '
+  print c ' on same line'
+  print ' ending the line'
+  print 'this one on a new line'
+
 The format mini-language is that of Fortran plus several additions
 
 .. code-block:: fython

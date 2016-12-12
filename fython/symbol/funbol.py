@@ -70,7 +70,8 @@ class FunBol(Unit):
 			else:
 				b != m
 
-			b != ','
+			if not m.is_opx:
+				b != ','
 
 
 		ast = s.ast_target

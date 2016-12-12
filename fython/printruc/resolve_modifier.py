@@ -15,7 +15,8 @@ def resolve_modifier(p):
 			
 		elif m.is_namex:
 			if m.value == 'c':
-				p.advance = 'no'
+				p.advance = ', advance="no"'
+
 			else:
 				p.unit = m
 

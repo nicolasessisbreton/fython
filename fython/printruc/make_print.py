@@ -36,7 +36,9 @@ def print_format_args(p, s, fmt, args):
 
 	p.rstrip('//')
 
-	p != ', advance="{:s}" ) '.format(p.advance)
+	p != p.advance
+
+	p != ') '
 
 	for a in args:
 		p != '{:s}, '.format(a)
@@ -50,7 +52,7 @@ def print_format_args(p, s, fmt, args):
 def print_stringx(p, stringx):
 	p != stringx.tbk_mark
 
-	p != 'write({unit:s}, "(a)", advance="{advance:s}") '.format(
+	p != 'write({unit:s}, "(a)"{advance:s}) '.format(
 		unit = p.unit, 
 		advance = p.advance,
 	)

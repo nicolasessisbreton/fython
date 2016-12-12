@@ -12,7 +12,7 @@ class PrintRuc(Buffer):
 
 		s.unit = '*'
 
-		s.advance = 'yes'
-		
+		s.advance = ''
+
 	def throw(s, error, **kwargs):
 		s.linecod.throw(error, **kwargs)

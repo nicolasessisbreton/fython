@@ -171,7 +171,7 @@ class PyWrapper(Data):
 
 		else:
 			if rout.nb_argument != 0:
-				s.throw(err.nb_of_arguments_mismatch, nb_received=0, nb_expected=rout.nb_argumen, function_name=rout.alias)
+				s.throw(err.nb_of_arguments_mismatch, nb_received=0, nb_expected=rout.nb_argument, function_name=rout.alias)
 
 			s(rout.so_name)()	
 
