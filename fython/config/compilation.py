@@ -226,3 +226,53 @@ def use_mkl_blas_lapack():
 	import ctypes
 	ctypes.CDLL('libmkl_rt.so', ctypes.RTLD_GLOBAL)
 	ctypes.CDLL('/opt/intel/lib/intel64/libiomp5.so', ctypes.RTLD_GLOBAL)
+
+def use_mkl_blas_lapack_gurobi():
+	set_compiler(
+		cmd = 'ifort',
+		prefix = '',
+		infix = '_mp_',
+		suffix = '_',
+		debug = """
+			-g 
+			-traceback
+			-gen-interfaces 
+			-warn all
+			-check all
+			-fpe0
+			-ftrapuv
+			-qopenmp
+			-I/opt/intel/mkl/include/intel64/lp64
+			-I/opt/intel/mkl/include
+		""",
+		release = """
+			-fast
+			-qopenmp
+			-I/opt/intel/mkl/include/intel64/lp64
+			-I/opt/intel/mkl/include
+		""",
+		link = """
+			/opt/intel/mkl/lib/intel64/libmkl_blas95_lp64.a
+			/opt/intel/mkl/lib/intel64/libmkl_lapack95_lp64.a
+			-L/opt/intel/mkl/lib/intel64
+			-L/opt/gurobi701/linux64/lib
+			-lgurobi70
+			-lmkl_intel_lp64
+			-lmkl_core
+			-lmkl_intel_thread
+			-lpthread
+			-lm
+			-ldl	
+		""",
+		error_regex = '(error #|ld:)',
+		
+		warning_regex = '(warning #|remark #)',
+	)
+
+
+	# needed to load mkl
+	# see: https://answers.launchpad.net/dolfin/+question/205219
+	import ctypes
+	ctypes.CDLL('libmkl_rt.so', ctypes.RTLD_GLOBAL)
+	ctypes.CDLL('/opt/intel/lib/intel64/libiomp5.so', ctypes.RTLD_GLOBAL)
+

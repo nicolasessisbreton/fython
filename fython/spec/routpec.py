@@ -129,7 +129,7 @@ def treat_attribute(s):
 		if m.is_funbol:
 			if m.value == 'iso':
 				s.use_iso_c_binding = 'use iso_c_binding\n'
-				s.post += 'bind(c)'
+				s.post += str(m).replace('iso', 'bind')
 				s.is_bindc = 1
 
 			elif m.value == 'bind':
