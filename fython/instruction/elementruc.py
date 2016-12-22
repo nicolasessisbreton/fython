@@ -3,6 +3,7 @@ from ..config import *
 intrinsic_subroutine = [
 	'open',
 	'close',
+	'inquire',
 ]
 
 def elementruc(linecod):
