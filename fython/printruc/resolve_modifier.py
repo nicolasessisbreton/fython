@@ -62,6 +62,9 @@ def resolve_funbol(p, f):
 	elif n == 'unit':
 		p.unit = f.args[0]
 
+	elif n == 'iostat':
+		p.iostat = ', iostat={:s}'.format(f.args[0])
+		
 	else:
 		p.throw(err.cannot_resolve_modifier, modifier=repr(m))
 		

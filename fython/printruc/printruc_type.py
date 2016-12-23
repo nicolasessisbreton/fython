@@ -14,5 +14,7 @@ class PrintRuc(Buffer):
 
 		s.advance = ''
 
+		s.iostat = ''
+		
 	def throw(s, error, **kwargs):
 		s.linecod.throw(error, **kwargs)
