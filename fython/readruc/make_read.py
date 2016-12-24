@@ -1,8 +1,9 @@
 from ..config import *
 
 def make_read(p):
-	p != 'read({unit:s}, * {iostat}) '.format(
+	p != 'read({unit:s}, {fmt:s} {iostat:s}) '.format(
 		unit = p.unit,
+		fmt = p.fmt,
 		iostat = p.iostat,
 	)
 

@@ -28,6 +28,7 @@ instruction = {
 	l.inline : l.inlineruc,
 	l.interface : l.interfacepec,
 	l.fork : l.forruc,
+	l.fop : l.fopruc,
 	l.omp : l.ompruc,
 	l.printk : l.printruc,
 	l.private : l.privateruc,

@@ -1,7 +1,7 @@
 Control Flow
 ------------
 
-Fython has ``if``, ``for``, ``while`` and ``where`` statement
+Fython has ``if``, ``for``, ``fop``, ``while`` and ``where`` statement
 
 .. code-block:: fython
 
@@ -23,6 +23,13 @@ The third argument in the bracket of a ``for`` statement is the step size
 
   for i in [0, 10, 2]:
     r += x[i] # 0, 2, 4, ...
+
+The ``fop`` loop is a parallel for loop. The Fortran equivalent is a do concurrent loop.
+
+.. code-block:: fython
+
+  fop i in [1, 2]:
+    r += x[i]
 
 The while loop is
 
