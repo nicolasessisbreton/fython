@@ -6,7 +6,7 @@ setup(
 	description = 'Fython is Fortran with a Python syntax.',
 	
 	author = 'Nicolas Essis-Breton',
-	author_email = 'contact@nicolasessisbreton.com',
+	author_email = 'nicolasessisbreton@gmail.com',
 
 	url = 'https://github.com/nicolasessisbreton/fython',
 
