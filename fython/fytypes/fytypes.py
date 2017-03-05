@@ -208,3 +208,40 @@ class CharV(Char):
 			value = s.get_value_from_args(args),
 			shape = None,
 		)
+
+# v=list gives value
+class IntL(Int):
+	def __init__(s, value, size = 4):
+		Int.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = None,
+		)
+
+class RealL(Real):
+	def __init__(s, value, size = 4):
+		Real.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = None,
+		)
+
+class Real8L(Real8):
+	def __init__(s, value, size = 4):
+		Real8.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = None,
+		)
+
+class CharL(Char):
+	def __init__(s, value, size = 4):
+		Char.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = None,
+		)

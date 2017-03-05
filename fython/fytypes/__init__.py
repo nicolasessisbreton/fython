@@ -13,4 +13,9 @@ from .fytypes import (
 	RealV,
 	Real8V,
 	CharV,
+
+	IntL,
+	RealL,
+	Real8L,
+	CharL,
 )
