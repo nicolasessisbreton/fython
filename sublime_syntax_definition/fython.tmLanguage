@@ -59,7 +59,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?i)\b(def)\s.*?\s?(\w+)(\s*\:)</string>
+			<string>(?i)\b(def|class)\s.*?\s?(\w+)(\s*\:)</string>
 		</dict>
 		<dict>
 			<key>match</key>

@@ -25,7 +25,7 @@ patterns:
 - name: comment.line.number-sign.fython
   match: (?i)\#.*
 
-- match: (?i)\b(def)\s.*?\s?(\w+)(\s*\:)
+- match: (?i)\b(def|class)\s.*?\s?(\w+)(\s*\:)
   captures:
     '1': {name: storage.type.function.fython}
     '2': {name: entity.name.function.fython}

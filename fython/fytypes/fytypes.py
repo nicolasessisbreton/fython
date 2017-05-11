@@ -76,6 +76,9 @@ class FyType:
 		else:
 			s.value[slice] = value
 
+	def __str__(s):
+		return str(s[:])
+
 	def __repr__(s):
 		r = s.__class__.__name__+'\n'
 		for key, item in s.__dict__.items():

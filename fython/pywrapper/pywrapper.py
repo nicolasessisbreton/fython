@@ -161,10 +161,6 @@ class PyWrapper(Data):
 			s(rout.so_name)(*get_arg_ref(args))
 
 		elif kwargs:
-			if len(kwargs) != rout.nb_argument:
-				mismatch = s.get_kwargs_mismath(rout, kwargs)
-				s.throw(err.nb_of_arguments_mismatch, nb_received=len(kwargs), nb_expected=rout.nb_argument, function_name=rout.alias, mismatch=mismatch)
-
 			args = s.order_args(rout, kwargs)
 
 			s(rout.so_name)(*get_arg_ref(args))
