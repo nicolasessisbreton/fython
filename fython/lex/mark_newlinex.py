@@ -2,6 +2,7 @@ import re
 from .config import *
 from ply.lex import lex as plex
 from ply.yacc import yacc as pyacc
+from .unbalanced_parenthesis_locator import find_unbalanced_parenthesis
 
 newline_re = re.compile('\n+')
 
@@ -195,8 +196,7 @@ def p_ket(p):
 def p_error(p):
 	p.lexer.module.throw(
 		error = err.unbalanced_parenthesis,
-		line = p.lineno,
-		position = p.lexpos,
+		msg = find_unbalanced_parenthesis(p.lexer.module.source),
 	)
 
 parser = pyacc(tabmodule = 'mark_newlinex_parsetab')
