@@ -2,12 +2,19 @@ from ..config import *
 from tabulate import tabulate
 
 def stack_trace(last_error, ndx, dotted, lineno):
-	last_error = last_error.decode('utf-8').strip()
+	try:
+		last_error = last_error.decode('utf-8').strip()
+	except Exception as e:
+		last_error = 'unknown({:s})'.format(str(e))
+
 	n = min(ndx, fytbk.max_depth-1)
 	name = []
 	line = []
 	for i in range(n):
-		name.append(dotted[i].decode('utf-8').strip())
+		try:
+			name.append(dotted[i].decode('utf-8').strip())
+		except Exception as e:
+			name.append('unknown({:s})'.format(str(e)))
 		line.append(str(lineno[i]))
 
 	name = list(reversed(name))

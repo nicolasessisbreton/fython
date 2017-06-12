@@ -116,7 +116,7 @@ def get_linecod(s):
 	return r
 
 def treat_attribute(s):
-	s.pre = Buffer(newline=', ')
+	s.pre = Buffer(', ', newline=', ')
 
 	for m in s.attribute:
 		if m.is_funbol:
