@@ -2,12 +2,12 @@ def find(s, left, right):
 	stack = []
 	parentheses_locs = {}
 	n = 1
-	p = 0
+	x = 0
 	for i, c in enumerate(s):
 		if c=='\n':
 			n += 1
-			p = 0
-		x = i-p+1
+			x = 2
+		x += 1
 		
 		if c == left:
 			stack.append((n,x))
