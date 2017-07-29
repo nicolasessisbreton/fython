@@ -69,8 +69,9 @@ class Stack(Data):
 		
 		# run
 		if m.is_up_to_date:
-			for url in m.dependency:
-				s.load(url, cwd, fy_parent=m)
+			if s.force != 2:
+				for url in m.dependency:
+					s.load(url, cwd, fy_parent=m)
 
 		else:
 			s.need_link = 1
@@ -99,7 +100,10 @@ class Stack(Data):
 			return url.is_up_to_date
 
 		elif s.force:
-			if url.is_noforce:
+			if s.force == 2:
+				return 1 # optimistic compilation
+
+			elif url.is_noforce:
 				return url.is_up_to_date
 
 			else:
