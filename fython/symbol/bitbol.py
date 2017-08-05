@@ -1,11 +1,11 @@
 from fython.unit import *
 
 bitwise_function = {
-	'<<' : 'lshift',
+	'<<' : 'shiftl',
 	'&'  : 'iand',
 	'^'  : 'ieor',
 	'|'  : 'ior',
-	'>>' : 'rshift',
+	'>>' : 'shiftr',
 }
 
 class BitBol(Unit):

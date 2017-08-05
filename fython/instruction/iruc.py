@@ -2,11 +2,11 @@ from ..config import *
 
 operator_inplace = {
 	# bitwise
-	'<<=' : 'lshift',
+	'<<=' : 'shiftl',
 	'&='  : 'iand',
 	'^='  : 'ieor',
 	'|='  : 'ior',
-	'>>=' : 'rshift',
+	'>>=' : 'shiftr',
 
 	# min max
 	'++=' : 'max',
