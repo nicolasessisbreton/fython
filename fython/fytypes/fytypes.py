@@ -97,6 +97,27 @@ class FyType:
 
 		return shape
 
+	def __getstate__(s):
+		if s.is_scalar:
+			v = s.value[0]
+		else:
+			v = list(s.value)
+		r = [
+			s.shape,
+			s.size,
+			v,
+		]
+		return r
+
+	def __setstate__(s, state):
+		s.__init__(
+			value = None,
+			shape = state[0],
+			size = state[1],
+		)
+		s[:] = state[2]
+		return s
+
 class Real(FyType):
 	name = 'real'
 	basetype = c_float
