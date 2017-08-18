@@ -8,16 +8,17 @@ class A:
 		real res r
 		r = self.x + z
 
-	def pget h:
-		s arg
-		real res r
-		r = 10 + s.x
-
 	def g:
 		s inout
 		real in x
 		real res r
 		r = x + 3 + s.h
+
+	def pget h:
+		s arg
+		real res r
+		r = 10 + s.x
+
 
 
 A a

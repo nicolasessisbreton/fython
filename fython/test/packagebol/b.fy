@@ -1,4 +1,8 @@
-import .a(*)
-|| T=real ||
+import asis type_provider(target_class=T)
 
-print '{:f(10.)}'
+def quicksort:
+	T dimension(10) in x
+	int: i r
+	for i in [1, 10]:
+		r = x[i].lt( x[i+1] )
+		print 'i {:r}'

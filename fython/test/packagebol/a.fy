@@ -1,4 +1,8 @@
-def f:
-	T in x
-	T res r
-	r = x * 10
+class A:
+	real x
+
+	def lt:
+		s in
+		A in other
+		bool res r
+		r = s.x < other.x

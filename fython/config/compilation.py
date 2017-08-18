@@ -255,8 +255,8 @@ def use_mkl_blas_lapack_gurobi():
 			/opt/intel/mkl/lib/intel64/libmkl_blas95_lp64.a
 			/opt/intel/mkl/lib/intel64/libmkl_lapack95_lp64.a
 			-L/opt/intel/mkl/lib/intel64
-			-L/opt/gurobi701/linux64/lib
-			-lgurobi70
+			-L/opt/gurobi751/linux64/lib
+			-lgurobi75
 			-lmkl_intel_lp64
 			-lmkl_core
 			-lmkl_intel_thread
@@ -302,8 +302,8 @@ def use_mkl_gurobi():
 		""",
 		link = """
 			-L/opt/intel/mkl/lib/intel64
-			-L/opt/gurobi701/linux64/lib
-			-lgurobi70
+			-L/opt/gurobi751/linux64/lib
+			-lgurobi75
 			-lmkl_intel_lp64
 			-lmkl_core
 			-lmkl_intel_thread
