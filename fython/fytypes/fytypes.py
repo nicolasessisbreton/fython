@@ -99,13 +99,15 @@ class FyType:
 
 	def __getstate__(s):
 		if s.is_scalar:
-			v = s.value[0]
+			shape = []
+			value = s.value[0]
 		else:
-			v = list(s.value)
+			shape = s.shape
+			value = list(s.value)
 		r = [
-			s.shape,
+			shape,
 			s.size,
-			v,
+			value,
 		]
 		return r
 
