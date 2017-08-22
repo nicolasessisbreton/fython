@@ -112,7 +112,8 @@ class FyType:
 		return r
 
 	def __setstate__(s, state):
-		s.__init__(
+		FyType.__init__(
+			s = s,
 			value = None,
 			shape = state[0],
 			size = state[1],
