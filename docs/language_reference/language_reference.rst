@@ -31,8 +31,11 @@ Language Reference
 
 .. include:: fytypes.rst
 
+.. include:: callback.rst
+
 .. include:: load.rst
 
 .. include:: pycessor.rst
 
 .. include:: template.rst
+
