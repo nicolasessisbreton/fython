@@ -80,6 +80,10 @@ class FyType:
 		return str(s[:])
 
 	def __repr__(s):
+		return str(s)
+		
+	@property
+	def repr(s):
 		r = s.__class__.__name__+'\n'
 		for key, item in s.__dict__.items():
 			r += '\t{:s} {:s}\n'.format(key, repr(item))
