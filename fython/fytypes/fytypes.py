@@ -143,6 +143,12 @@ class Int(FyType):
 	dtprefix = 'int'
 	size_multiplier = 8
 
+class Int8(FyType):
+	name = 'int8'
+	basetype = c_long
+	dtprefix = 'int'
+	size_multiplier = 16
+
 class Char(FyType):
 	name = 'char'
 	basetype = c_char

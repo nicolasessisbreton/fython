@@ -2,6 +2,7 @@ from .fytypes import (
 	Real, 
 	Real8,
 	Int, 
+	Int8,
 	Char,
 
 	IntS,
