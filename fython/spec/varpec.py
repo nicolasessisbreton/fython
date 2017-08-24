@@ -6,7 +6,8 @@ intrinsic_type = {
 	'char': 'character',
 	'bool': 'logical',
 	'complex': 'complex',
-
+	'proc': 'procedure',
+	
 	# need for spec interpolation reintrospectio
 	'integer': 'integer',
 	'character': 'character',

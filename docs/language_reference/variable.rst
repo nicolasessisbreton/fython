@@ -45,3 +45,15 @@ String variable can be assign a value with a multiline string
   x = "double quote"
 
 Any newline or tab character in the string will be honored.
+
+For procedure argument, use the ``proc`` modifier
+
+.. code-block:: fython
+  interface:
+    def worker:
+      pass
+
+    def consummer:
+      proc(worker) f
+      f() 
+      
