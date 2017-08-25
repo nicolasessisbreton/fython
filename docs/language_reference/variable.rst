@@ -53,7 +53,7 @@ For procedure argument, use the ``proc`` modifier
     def worker:
       pass
 
-    def consummer:
-      proc(worker) f
-      f() 
+  def consummer:
+    proc(worker) f
+    f() 
       

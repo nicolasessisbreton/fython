@@ -6,6 +6,10 @@ Such callable function are called callback.
 The trick is to pass the address of the callback.
 This address is a simple integer, so, in fython, we cast it to a function pointer.
 
+On the Python side, the work of getting the address of the callback
+is handle by a decorator.
+On the Fython side, two lines of code and the callback signature suffices.
+
 The code below shows how to transfer integer, real and arrays of these two.
 
 The Fython code goes as follows.
@@ -56,7 +60,7 @@ The Fython code goes as follows.
     print 'fython exit'
     
      
-The Python goes like this
+The Python code is
 
 .. code-block:: python
 
