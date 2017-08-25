@@ -7,6 +7,7 @@ class FyType:
 		value = None,
 		shape = [],
 		size = 4,
+		is_c_pointer = 0,
 	):
 		s.size = size
 		s.basepointer = POINTER(s.basetype)
@@ -16,12 +17,35 @@ class FyType:
 		s.shape = shape
 		s.is_scalar = 0
 
-		if value is not None:
+		if is_c_pointer:
+			s.resolve_c_pointer()
+
+		elif value is not None:
 			s.resolve_value()
 		else:	
 			s.resolve_shape()
 
 		s.resolve_type()
+
+	def resolve_c_pointer(s):
+		if isinstance(s.shape, (tuple, list)):
+			if len(s.shape) == 0:
+				array_type = s.basetype
+				s.is_scalar = 1
+			else:
+				array_type = s.basetype * get_value(s.shape[0])
+				for i in s.shape[1:]:
+					array_type *= get_value(i)
+		else:
+			array_type = s.basetype * get_value(s.shape)
+
+		addr = addressof(s.value.contents)
+		s.value = array(array_type.from_address(addr), copy=0)
+
+		if s.is_scalar:
+			s.value = s.value.reshape([1])
+			
+		s.shape = s.value.shape
 
 	def resolve_value(s):
 		v = array(s.value, dtype=s.dtype, copy=0)
@@ -94,10 +118,7 @@ class FyType:
 		shape = []
 		
 		for x in args:
-			if isinstance(x, FyType):
-				shape.append( x[:] )
-			else:
-				shape.append( x )
+			shape.append( get_value(x) )
 
 		return shape
 
@@ -125,6 +146,27 @@ class FyType:
 		s[:] = state[2]
 		return s
 
+# helper fct
+def get_value(x):
+	if isinstance(x, FyType):
+		return x[:]
+	elif isinstance(x, POINTER(c_int)):
+		return x.contents.value
+	else:
+		return x
+
+# decorator
+def fycallback(*args_fytype):
+	def decorator(fct):
+		args = [POINTER(x.basetype) for x in args_fytype]
+		c_fun_dec = CFUNCTYPE(None, *args)
+		c_fun = c_fun_dec(fct)
+		c_fun_int = cast(c_fun, c_void_p).value
+		fct.fy_address = Int8(c_fun_int)
+		return fct
+	return decorator
+
+# ---------- particular instance
 class Real(FyType):
 	name = 'real'
 	basetype = c_float
@@ -281,4 +323,55 @@ class CharL(Char):
 			size = size,
 			value = value,
 			shape = None,
+		)
+
+# v:c pointer
+class IntP(Int):
+	def __init__(s, value, shape=[], size = 4):
+		Int.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = shape,
+			is_c_pointer = 1,
+		)
+
+class Int8P(Int8):
+	def __init__(s, value, shape=[], size = 4):
+		Int8.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = shape,
+			is_c_pointer = 1,
+		)
+
+class RealP(Real):
+	def __init__(s, value, shape=[], size = 4):
+		Real.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = shape,
+			is_c_pointer = 1,
+		)
+
+class Real8P(Real8):
+	def __init__(s, value, shape=[], size = 4):
+		Real8.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = shape,
+			is_c_pointer = 1,
+		)
+
+class CharP(Char):
+	def __init__(s, value, shape=[], size = 4):
+		Char.__init__(
+			s = s,
+			size = size,
+			value = value,
+			shape = shape,
+			is_c_pointer = 1,
 		)

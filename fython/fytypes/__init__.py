@@ -1,4 +1,6 @@
 from .fytypes import (
+	fycallback,
+
 	Real, 
 	Real8,
 	Int, 
@@ -19,4 +21,10 @@ from .fytypes import (
 	RealL,
 	Real8L,
 	CharL,
+
+	IntP,
+	RealP,
+	Int8P,
+	Real8P,
+	CharP,
 )

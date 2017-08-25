@@ -17,11 +17,11 @@ The Fython code goes as follows.
 
   interface:
     def iso(c) py_fct:
-      int(c_int) value in:
+      int(c_int) in:
         xint
-      real(c_float) value in:
+      real(c_float) in:
         xreal
-      int(c_int) value in:
+      int(c_int) in:
         nintv
         nrealv
       int(c_int) in:
@@ -52,8 +52,10 @@ The Fython code goes as follows.
     xv = 10
     yv = 5.5
     pyf(x, y, 2, 2, xv, yv)
+    print 'fython: after call: {:x} {:y} {v:xv} {v:yv}'
     print 'fython exit'
     
+     
 The Python goes like this
 
 .. code-block:: python
@@ -63,26 +65,21 @@ The Python goes like this
   from ctypes import *
   import numpy as np
 
-  m = load('.pycall', force = 2)
+  m = load('.fy_caller', force = 1)
 
+  @fycallback(Int, Real, Int, Int, Int, Real)
   def f(xint, xreal, nintv, nrealv, xintv, xrealv):
-    array_type = c_int*nintv
-    addr = addressof(xintv.contents)
-    xintv = np.array(array_type.from_address(addr), copy=0)
+    x = IntP(xint)
+    y = RealP(xreal)
+    xv = IntP(xintv, nintv)
+    yv = RealP(xrealv, nrealv)
 
-    array_type = c_float*nrealv
-    addr = addressof(xrealv.contents)
-    xrealv = np.array(array_type.from_address(addr), copy=0)
+    print('hello from python', x, y, xv, yv)
 
-    print('hello from python', xint, xreal, nintv, nrealv, xintv, xrealv)
+    x[:] *= 2 
+    y[:] *= 2
+    xv[:] *= 2
+    yv[:] *= 2
 
-  c_fun_dec = CFUNCTYPE(None, c_int, c_float, c_int, c_int, POINTER(c_int), POINTER(c_float))
 
-  c_fun = c_fun_dec(f)
-
-  c_fun_int = cast(c_fun, c_void_p).value
-
-  m.f(
-    py_fct_pointer_int = Int8(c_fun_int),
-  )
-
+  m.f(py_fct_pointer_int = f.fy_address)
