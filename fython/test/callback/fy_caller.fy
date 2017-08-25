@@ -3,16 +3,16 @@ import:
 
 interface:
   def iso(c) py_fct:
-    int(c_int) in:
+    int(c_int) inout:
       xint
-    real(c_float) in:
+    real(c_float) inout:
       xreal
     int(c_int) in:
       nintv
       nrealv
-    int(c_int) in:
+    int(c_int) inout:
       xintv(*)
-    real(c_float) in:
+    real(c_float) inout:
       xrealv(*)
       
 def f:
