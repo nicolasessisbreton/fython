@@ -33,9 +33,10 @@ class FyType:
 				array_type = s.basetype
 				s.is_scalar = 1
 			else:
-				array_type = s.basetype * get_value(s.shape[0])
-				for i in s.shape[1:]:
-					array_type *= get_value(i)
+				shape = get_value_from_list(s.shape)[::-1]
+				array_type = s.basetype * shape[0]
+				for i in shape[1:]:
+					array_type *= i
 		else:
 			array_type = s.basetype * get_value(s.shape)
 
@@ -114,14 +115,6 @@ class FyType:
 		return r
 
 
-	def get_value_from_args(s, args):
-		shape = []
-		
-		for x in args:
-			shape.append( get_value(x) )
-
-		return shape
-
 	def __getstate__(s):
 		if s.is_scalar:
 			shape = []
@@ -155,6 +148,12 @@ def get_value(x):
 	else:
 		return x
 
+def get_value_from_list(args):
+	r = []
+	for x in args:
+		r.append(get_value(x))
+	return r
+
 # decorator
 def fycallback(*args_fytype):
 	def decorator(fct):
@@ -162,6 +161,8 @@ def fycallback(*args_fytype):
 		c_fun_dec = CFUNCTYPE(None, *args)
 		c_fun = c_fun_dec(fct)
 		c_fun_int = cast(c_fun, c_void_p).value
+		fct.c_fun_dec = c_fun_dec
+		fct.c_fun = c_fun
 		fct.fy_address = Int8(c_fun_int)
 		return fct
 	return decorator
@@ -221,7 +222,7 @@ class IntS(Int):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_value_from_args(args),
+			shape = get_value_from_list(args),
 		)
 
 class RealS(Real):
@@ -230,7 +231,7 @@ class RealS(Real):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_value_from_args(args),
+			shape = get_value_from_list(args),
 		)
 
 class Real8S(Real8):
@@ -239,7 +240,7 @@ class Real8S(Real8):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_value_from_args(args),
+			shape = get_value_from_list(args),
 		)
 
 class CharS(Char):
@@ -248,7 +249,7 @@ class CharS(Char):
 			s = s,
 			size = size,
 			value = None,
-			shape = s.get_value_from_args(args),
+			shape = get_value_from_list(args),
 		)
 
 # *args gives value
@@ -257,7 +258,7 @@ class IntV(Int):
 		Int.__init__(
 			s = s,
 			size = size,
-			value = s.get_value_from_args(args),
+			value = get_value_from_list(args),
 			shape = None,
 		)
 
@@ -266,7 +267,7 @@ class RealV(Real):
 		Real.__init__(
 			s = s,
 			size = size,
-			value = s.get_value_from_args(args),
+			value = get_value_from_list(args),
 			shape = None,
 		)
 
@@ -275,7 +276,7 @@ class Real8V(Real8):
 		Real8.__init__(
 			s = s,
 			size = size,
-			value = s.get_value_from_args(args),
+			value = get_value_from_list(args),
 			shape = None,
 		)
 
@@ -284,7 +285,7 @@ class CharV(Char):
 		Char.__init__(
 			s = s,
 			size = size,
-			value = s.get_value_from_args(args),
+			value = get_value_from_list(args),
 			shape = None,
 		)
 
